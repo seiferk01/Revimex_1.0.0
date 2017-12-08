@@ -98,6 +98,7 @@
 		52B7203A1FA78B1800F447DA /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52B720381FA78B1800F447DA /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52B720401FA78F4700F447DA /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B7203F1FA78F4700F447DA /* StockController.swift */; };
 		52B734F51FDB31280028F2F7 /* UbicacionInmuebleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B734F41FDB31280028F2F7 /* UbicacionInmuebleController.swift */; };
+		52B734F71FDB3D8F0028F2F7 /* lineas.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B734F61FDB3D8E0028F2F7 /* lineas.png */; };
 		C11ABDD26CBF239237DC3811 /* Pods_RevimexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEC245B342501C8DFB8CC9 /* Pods_RevimexTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -234,6 +235,7 @@
 		52B720381FA78B1800F447DA /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		52B7203F1FA78F4700F447DA /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
 		52B734F41FDB31280028F2F7 /* UbicacionInmuebleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbicacionInmuebleController.swift; sourceTree = "<group>"; };
+		52B734F61FDB3D8E0028F2F7 /* lineas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineas.png; sourceTree = "<group>"; };
 		58A22A2B9B08D21C03AFAF4A /* Pods-RevimexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevimexTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevimexTests/Pods-RevimexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7157B05E32A444E4251D9884 /* Pods_Revimex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Revimex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4804135DFD212E74478102 /* Pods_RevimexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevimexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +345,7 @@
 				526DC61E1FB4F43E007CD85F /* buscar.png */,
 				526DC61A1FB4BF44007CD85F /* carrito.png */,
 				526DC6161FB4BE5B007CD85F /* favoritos.png */,
+				52B734F61FDB3D8E0028F2F7 /* lineas.png */,
 				526DC61C1FB4C129007CD85F /* propiedades.png */,
 				526DC5FD1FB25553007CD85F /* principalMarker.png */,
 				526DC5E71FB21D9D007CD85F /* escuelas.png */,
@@ -623,6 +626,7 @@
 				521E56261FC7394F00D38947 /* entrarConFcebook.png in Resources */,
 				11965E981FDB08AE009681F2 /* menu-vertical-100.png in Resources */,
 				526DC5EE1FB21D9F007CD85F /* escuelas.png in Resources */,
+				52B734F71FDB3D8F0028F2F7 /* lineas.png in Resources */,
 				5221BE0F1FBBD30300D0F89C /* info.png in Resources */,
 				521E56221FC6695300D38947 /* favorites.png in Resources */,
 			);

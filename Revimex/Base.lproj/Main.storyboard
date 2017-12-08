@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxe-G8-nyp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxe-G8-nyp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -556,6 +556,83 @@
             </objects>
             <point key="canvasLocation" x="3538" y="1305"/>
         </scene>
+        <!--Lineas de Negocios-->
+        <scene sceneID="BZF-VE-QEw">
+            <objects>
+                <viewController id="tq9-Wd-AHO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C1j-9j-uFY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDe-jb-PHb">
+                                <rect key="frame" x="57" y="122" width="260" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34493941068649292" green="0.34898576140403748" blue="0.35310074687004089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Cliente Final">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="qJJ-sx-h5k" kind="show" id="hCG-j6-DP1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWx-AG-zFp">
+                                <rect key="frame" x="57" y="229" width="260" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34493941068649292" green="0.34898576140403748" blue="0.35310074687004089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Mercado Abierto">
+                                    <color key="titleColor" red="0.97053721745056054" green="0.97790291308792043" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XVQ-pa-MHR" kind="show" id="4jM-kB-cRG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFP-ad-RIu">
+                                <rect key="frame" x="57" y="337" width="260" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34493941068649292" green="0.34898576140403748" blue="0.35310074687004089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Inversionista">
+                                    <color key="titleColor" red="0.97053721745056054" green="0.97790291308792043" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7MU-4I-WLp" kind="show" id="sNS-pH-RMi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9r-QM-lBm">
+                                <rect key="frame" x="57" y="458" width="260" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34493941068649292" green="0.34898576140403748" blue="0.35310074687004089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Brokerage">
+                                    <color key="titleColor" red="0.97053721745056054" green="0.97790291308792043" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RRR-tq-hJC" kind="show" id="wgf-7r-LCy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="UOv-IM-q3U"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Lineas de Negocios" image="lineas.png" id="dYU-Vr-AGM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQ5-sc-Ncy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4380" y="1302.9985007496252"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cwp-wY-TSG">
+            <objects>
+                <viewController id="qJJ-sx-h5k" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gjG-cB-T6P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="fYR-iL-14r"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nv3-56-ai6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5705" y="-176"/>
+        </scene>
         <!--Mis Propiedades-->
         <scene sceneID="70k-K4-TKI">
             <objects>
@@ -565,10 +642,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsa-2z-ZZu">
-                                <rect key="frame" x="0.0" y="92" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEL-Px-CVF">
-                                <rect key="frame" x="320" y="563" width="40" height="40"/>
+                                <rect key="frame" x="320" y="612" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ris-WE-443"/>
                                 </constraints>
@@ -592,7 +669,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <segments>
                                     <segment title="Mis Propiedades"/>
-                                    <segment title="Mis Inversiones"/>
+                                    <segment title="Estadisticas"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeContentView:" destination="XVQ-pa-MHR" eventType="valueChanged" id="Qc6-ZP-vxf"/>
@@ -628,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqN-eI-3OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4380" y="1302.9985007496252"/>
+            <point key="canvasLocation" x="5704.8000000000002" y="692.20389805097454"/>
         </scene>
         <!--Subir Propiedad View Controller-->
         <scene sceneID="ojP-Gk-cxF">
@@ -695,7 +772,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9v-I0-KMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4380" y="2154.872563718141"/>
+            <point key="canvasLocation" x="8010" y="691"/>
         </scene>
         <!--Detalles Inmueble Controller-->
         <scene sceneID="30p-a9-yVy">
@@ -710,7 +787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3P1-qJ-9Ih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5338" y="2186"/>
+            <point key="canvasLocation" x="9020" y="690"/>
         </scene>
         <!--Ubicacion Inmueble Controller-->
         <scene sceneID="4kc-re-cPv">
@@ -725,7 +802,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMX-uE-B0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5967" y="2185"/>
+            <point key="canvasLocation" x="9649" y="690"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="N48-WB-bEH">
@@ -749,7 +826,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOV-OF-tux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6604" y="2185.4572713643179"/>
+            <point key="canvasLocation" x="10287" y="690"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5R4-7U-DuS">
@@ -766,7 +843,7 @@
                         <segue destination="ZQU-Q4-uvR" kind="relationship" relationship="viewControllers" id="TGg-OI-aXf"/>
                         <segue destination="dJC-gO-JgB" kind="relationship" relationship="viewControllers" id="xbb-wc-byH"/>
                         <segue destination="8F5-Rg-Pvz" kind="relationship" relationship="viewControllers" id="RLA-9j-w1K"/>
-                        <segue destination="XVQ-pa-MHR" kind="relationship" relationship="viewControllers" id="Rwo-Ia-mxg"/>
+                        <segue destination="tq9-Wd-AHO" kind="relationship" relationship="viewControllers" id="azx-rW-6Nz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXH-Em-WLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1170,7 +1247,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oA3-1o-lAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5109.6000000000004" y="1112.2938530734634"/>
+            <point key="canvasLocation" x="6668" y="560"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AnP-Gc-uQH">
+            <objects>
+                <viewController id="7MU-4I-WLp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dD0-Xr-M0j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="QwR-8r-PBb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8P-ed-aoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5705" y="1723"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9Nk-o7-CmP">
+            <objects>
+                <viewController id="RRR-tq-hJC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3SV-ON-Jmf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="ces-Wj-LpT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OhD-aQ-OhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5705" y="2692"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="sdc-gQ-dg3">
@@ -1186,7 +1293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmi-a3-k4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5111" y="1496"/>
+            <point key="canvasLocation" x="6668" y="985"/>
         </scene>
     </scenes>
     <resources>
@@ -1194,18 +1301,19 @@
         <image name="buscar.png" width="20" height="20"/>
         <image name="carrito.png" width="20" height="20"/>
         <image name="centroComercial.png" width="64" height="64"/>
-        <image name="compartir.ico" width="192" height="192"/>
+        <image name="compartir.ico" width="256" height="256"/>
         <image name="entrarConFcebook.png" width="300" height="100"/>
         <image name="escuelas.png" width="64" height="64"/>
         <image name="favoritos.png" width="20" height="20"/>
         <image name="hospitales.png" width="64" height="64"/>
+        <image name="lineas.png" width="20" height="20"/>
         <image name="parques.png" width="64" height="64"/>
         <image name="principalMarker.png" width="20" height="20"/>
         <image name="propiedades.png" width="24" height="24"/>
         <image name="restaurantes.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jc2-OJ-Tv8"/>
+        <segue reference="ivx-oX-pij"/>
         <segue reference="wmC-0K-PaR"/>
         <segue reference="QYd-vS-5Ig"/>
     </inferredMetricsTieBreakers>

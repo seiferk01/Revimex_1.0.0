@@ -29,14 +29,14 @@ class PropiedadesController: UIViewController {
     }
     
     override func viewDidLoad() {
-        labelSeccion.isHidden = true;
+        labelSeccion.isHidden = false;
         if((UserDefaults.standard.object(forKey: "userId") as? Int) != nil){
             super.viewDidLoad();
             let storyboard = UIStoryboard(name: "Main", bundle: nil);
             misPropiedades = storyboard.instantiateViewController(withIdentifier: "MisPropiedades") as! MisPropiedadesController;
             misInversiones = storyboard.instantiateViewController(withIdentifier: "MisInversiones");
             activeViewController = misPropiedades;
-            
+            labelSeccion.isHidden = true;
             
             
             btnNvPropiedad_Inversion.titleLabel?.font = UIFont.fontAwesome(ofSize: 36);
@@ -57,7 +57,6 @@ class PropiedadesController: UIViewController {
             }
             
         }else{
-            labelSeccion.isHidden = false;
             sgCtrlPropiedades.isHidden = true;
             cnVwPropiedades.isHidden = true;
             btnNvPropiedad_Inversion.isHidden = true;
