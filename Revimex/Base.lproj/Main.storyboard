@@ -328,10 +328,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UiQ-R2-9Jz">
-                                                            <rect key="frame" x="10" y="10" width="353" height="218"/>
+                                                            <rect key="frame" x="10" y="10" width="355" height="218"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0qN-Dk-GQl">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="218"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="218"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="250" id="4zG-ag-4jJ"/>
                                                                     </constraints>
