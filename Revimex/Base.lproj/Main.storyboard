@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxe-G8-nyp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxe-G8-nyp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -328,10 +328,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UiQ-R2-9Jz">
-                                                            <rect key="frame" x="10" y="10" width="355" height="218"/>
+                                                            <rect key="frame" x="10" y="10" width="353" height="218"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0qN-Dk-GQl">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="218"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="218"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="250" id="4zG-ag-4jJ"/>
                                                                     </constraints>
@@ -705,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqN-eI-3OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5704.8000000000002" y="692.20389805097454"/>
+            <point key="canvasLocation" x="5705" y="853"/>
         </scene>
         <!--Subir Propiedad View Controller-->
         <scene sceneID="ojP-Gk-cxF">
@@ -772,44 +772,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9v-I0-KMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8010" y="691"/>
+            <point key="canvasLocation" x="6633" y="1365"/>
         </scene>
         <!--Detalles Inmueble Controller-->
         <scene sceneID="30p-a9-yVy">
             <objects>
                 <viewController storyboardIdentifier="DetallesInmueble" id="hOz-l8-eYK" customClass="DetallesInmuebleController" customModule="Revimex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gs-zQ-QiM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wbs-oe-5zL"/>
                     </view>
+                    <size key="freeformSize" width="375" height="375"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3P1-qJ-9Ih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9020" y="690"/>
+            <point key="canvasLocation" x="7292" y="1303"/>
         </scene>
         <!--Ubicacion Inmueble Controller-->
         <scene sceneID="4kc-re-cPv">
             <objects>
                 <viewController storyboardIdentifier="UbicacionInmueble" id="Eyj-fg-o5H" customClass="UbicacionInmuebleController" customModule="Revimex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lam-lg-CSJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jfA-xb-2HG"/>
                     </view>
+                    <size key="freeformSize" width="375" height="375"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMX-uE-B0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9649" y="690"/>
+            <point key="canvasLocation" x="7919" y="1303"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="N48-WB-bEH">
             <objects>
                 <viewController storyboardIdentifier="FotosInmueble" id="Duj-QX-hRq" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJr-kd-jqi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uW-hR-o1u">
@@ -823,10 +825,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KBT-XU-TQ0"/>
                     </view>
+                    <size key="freeformSize" width="375" height="375"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOV-OF-tux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10287" y="690"/>
+            <point key="canvasLocation" x="8559" y="1303"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5R4-7U-DuS">
@@ -1247,7 +1250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oA3-1o-lAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6668" y="560"/>
+            <point key="canvasLocation" x="6633" y="405"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="AnP-Gc-uQH">
@@ -1293,7 +1296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmi-a3-k4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6668" y="985"/>
+            <point key="canvasLocation" x="6633" y="813"/>
         </scene>
     </scenes>
     <resources>
@@ -1301,7 +1304,7 @@
         <image name="buscar.png" width="20" height="20"/>
         <image name="carrito.png" width="20" height="20"/>
         <image name="centroComercial.png" width="64" height="64"/>
-        <image name="compartir.ico" width="256" height="256"/>
+        <image name="compartir.ico" width="192" height="192"/>
         <image name="entrarConFcebook.png" width="300" height="100"/>
         <image name="escuelas.png" width="64" height="64"/>
         <image name="favoritos.png" width="20" height="20"/>
