@@ -15,9 +15,9 @@ class SubirPropiedadViewController: UIViewController{
     @IBOutlet weak var btnSig: UIButton!
     @IBOutlet weak var btnAnt: UIButton!
     
-    var detallesInmueble: UIViewController!;
-    var ubicacionInmueble: UIViewController!;
-    var fotosInmueble: UIViewController!;
+    var detallesInmueble: DetallesInmuebleController!;
+    var ubicacionInmueble: UbicacionInmuebleController!;
+    var fotosInmueble: FotosInmuebleController!;
     
     var views:[UIViewController?]!;
     
@@ -36,9 +36,12 @@ class SubirPropiedadViewController: UIViewController{
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         
-        detallesInmueble = storyboard.instantiateViewController(withIdentifier: "DetallesInmueble");
-        ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble");
-        fotosInmueble = storyboard.instantiateViewController(withIdentifier: "FotosInmueble");
+        detallesInmueble = storyboard.instantiateViewController(withIdentifier: "DetallesInmueble") as! DetallesInmuebleController ;
+        ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble") as! UbicacionInmuebleController;
+        fotosInmueble = storyboard.instantiateViewController(withIdentifier: "FotosInmueble") as! FotosInmuebleController;
+        
+        fotosInmueble.sizeMax = cnVwFormularios.frame;
+        
         
         views = [detallesInmueble,ubicacionInmueble,fotosInmueble];
         
@@ -80,13 +83,17 @@ class SubirPropiedadViewController: UIViewController{
     private func actualizar(){
         if(cont == 0){
             btnAnt.isEnabled = false;
+            btnAnt.isOpaque = true;
         }else{
             btnAnt.isEnabled = true;
+            btnAnt.isOpaque = false;
         }
         if(cont == 2){
             btnSig.isEnabled = false;
+            btnSig.isOpaque = true;
         }else{
             btnSig.isEnabled = true;
+            btnSig.isOpaque = false;
         }
         actualViewController = views[cont];
     }

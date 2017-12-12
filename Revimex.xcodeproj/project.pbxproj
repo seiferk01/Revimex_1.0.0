@@ -454,7 +454,6 @@
 				529858B21FDF3B5700685F5D /* UbicationContoller.swift */,
 				11C2663A1FD89D6C0051AC05 /* SubirPropiedadViewController.swift */,
 				11C266381FD87CA20051AC05 /* MisPropiedadesCellController.swift */,
-				11965E9B1FDB08C3009681F2 /* MisPropiedadesController.swift */,
 				11C266341FD768D00051AC05 /* PropiedadesController.swift */,
 				5221BDFC1FBA83FD00D0F89C /* Utilities.swift */,
 				52A4C02B1FACD410003CAF69 /* Details.swift */,
@@ -1044,7 +1043,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9K97DWZW76;
+				DEVELOPMENT_TEAM = PXENVG785Y;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1069,7 +1068,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9K97DWZW76;
+				DEVELOPMENT_TEAM = PXENVG785Y;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
