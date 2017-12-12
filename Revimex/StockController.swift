@@ -57,10 +57,12 @@ class StockController: UIViewController,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //medidas de la barra de navegacion
-        let navigationBarSize = navigationController?.navigationBar.bounds
-        navigationBarSizeWidth = (navigationBarSize?.width)!
-        navigationBarSizeHeigth = (navigationBarSize?.height)!
+//        let fondo = UIImageView(image: UIImage(named: "backStock.jpg"))
+//        fondo.frame = CGRect(x: 0,y: 0,width: view.frame.width,height: view.frame.height)
+//        view.addSubview(fondo)
+//        view.sendSubview(toBack: fondo)
+        
+        tableView.backgroundColor = .clear
         
         //genera la barra de navegacion
         crearBarraNavegacion()
@@ -73,7 +75,7 @@ class StockController: UIViewController,UITableViewDataSource {
         
         //genera el carrusel de lineas de negocio
         creaLineasDeNegocio()
-        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(moveToNextPage), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(moveToNextPage), userInfo: nil, repeats: true)
         
         //llamado a la lista de propiedades
         creaTablaPropiedades(url: paginaSiguiente)
@@ -89,14 +91,26 @@ class StockController: UIViewController,UITableViewDataSource {
     func crearBarraNavegacion(){
         
         //configuracion de la vista de la barra de navegacion
-        navigationController?.navigationBar.barTintColor = UIColor.black
+        
+        //medidas de la barra de navegacion
+        let navigationBarSize = navigationController?.navigationBar.bounds
+        navigationBarSizeWidth = (navigationBarSize?.width)!
+        navigationBarSizeHeigth = (navigationBarSize?.height)!
+        
         navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.barTintColor = UIColor.black.withAlphaComponent(0.5)
+        
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navBarBackground.png"), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
         
         let logo = UIImage(named: "revimex.png")
         let contenedorLogo = UIImageView(image:logo)
         contenedorLogo.frame = CGRect(x: navigationBarSizeWidth*0.3,y: 0.0,width: navigationBarSizeWidth*0.4,height: navigationBarSizeHeigth)
         
         navigationController?.navigationBar.addSubview(contenedorLogo)
+        
         
     }
     
@@ -158,7 +172,7 @@ class StockController: UIViewController,UITableViewDataSource {
         contenedorLineas.isUserInteractionEnabled = true
         
         for (index, linea) in arrayLineas.enumerated() {
-            linea.frame = CGRect(x: (lineasDeNegocio.bounds.width * CGFloat(index)),y: 0,width: lineasDeNegocio.bounds.width,height: lineasDeNegocio.bounds.height)
+            linea.frame = CGRect(x: (lineasDeNegocio.bounds.width * CGFloat(index)),y: 0,width: lineasDeNegocio.frame.width,height: lineasDeNegocio.bounds.height)
             
             contenedorLineas.addSubview(linea)
         }
@@ -303,6 +317,8 @@ class StockController: UIViewController,UITableViewDataSource {
         row.precio.text = "$" + arregloOfertas[indexPath.row].precio
         row.vistaFoto.image = arregloOfertas[indexPath.row].foto
         print(indexPath.row)
+        
+        row.backgroundColor = .clear
         
         if arregloOfertas.count == (indexPath.row + 1){
             if haySiguiente {
