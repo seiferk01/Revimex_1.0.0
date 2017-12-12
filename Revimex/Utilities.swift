@@ -112,6 +112,9 @@ var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",c
 
 class Utilities: NSObject {
 
+    public static var GEOCODING_URL:String! = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&components=country:MX&address=";
+    public static var ZIPCODES_URL:String! = "https://api-codigos-postales.herokuapp.com/v2/codigo_postal/";
+    
     //recibe una url en tipo string, la procesa y la regresa como imagen
     static func traerImagen(urlImagen: String) -> UIImage{
         var imagen = UIImage(named: "imagenNoEncontrada.png")
@@ -158,6 +161,7 @@ class Utilities: NSObject {
         return background
     }
     
+    //Genera sombras en botones
     public static func genearSombras(_ button: UIButton!)->UIButton!{
         button.layer.shadowRadius = 0.5;
         button.layer.masksToBounds = false;
@@ -168,5 +172,11 @@ class Utilities: NSObject {
         return button;
     }
     
+    //Genera un alert y lo devuelve
+    public static func showAlertSimple(_ titulo:String!,_ mensaje:String!)->UIAlertController{
+        let alert = UIAlertController(title: titulo, message: mensaje, preferredStyle: UIAlertControllerStyle.alert);
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        return alert;
+    }
     
 }

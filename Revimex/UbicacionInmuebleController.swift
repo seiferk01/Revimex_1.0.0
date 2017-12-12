@@ -89,10 +89,42 @@ class UbicacionInmuebleController: FormViewController {
         codeZip.onChange({ row in
             if(row.value != nil){
                 if(Utilities.isValidZip((row.value)!)){
-                    print(row.value as Any);
+                    
+                    let urlZip = Utilities.ZIPCODES_URL+(row.value?.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines))!;
+                    self.datosByZipCode(urlZip){datos in
+                        OperationQueue.main.addOperation {
+                            self.col.options = (datos["colonias"] as! [String]);
+                        }
+                    }
                 }
             }
         })
+    }
+    
+    
+    private func datosByZipCode(_ urlZip:String!,completado:@escaping (_ datos:[String:Any?])->Void){
+        var datos:[String:Any?] = [:];
+        if let url = URL(string: urlZip){
+            var request = URLRequest(url: url);
+            request.httpMethod = "GET";
+            let session = URLSession.shared;
+            session.dataTask(with: request){(data,response,error) in
+                if let data = data{
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data) as! [String:Any?];
+                        let datosD = json as NSDictionary;
+                        datos["colonias"] = datosD["colonias"] as! NSArray;
+                        datos["municipio"] = datosD["municipio"] as! String;
+                        completado(datos as [String:Any?]);
+                    }catch{
+                        OperationQueue.main.addOperation {
+                            self.present(Utilities.showAlertSimple("ERROR", "Error en JSON_ZIP_CODE"), animated: true);
+                        }
+                    }
+                }
+                
+                }.resume();
+        }
     }
     
     override func didReceiveMemoryWarning() {
