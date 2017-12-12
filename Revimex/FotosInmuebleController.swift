@@ -8,19 +8,36 @@
 
 import UIKit
 
-class FotosInmuebleController: UIViewController,UITableViewDataSource{
+class FotosInmuebleController: UIViewController,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     @IBOutlet public weak var tableFotosInmueble: UITableView!;
     
-    public struct cell{
+    public var sizeMax:CGRect!;
+    
+    public struct Cell{
         var img:UIImage!;
         var textLabel:String!;
+        init(_ textLabel:String!) {
+            self.textLabel = textLabel;
+        }
     }
     
-    private var data:[cell] = [];
+    private var data:[Cell] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableFotosInmueble.frame = self.view.frame;
+        tableFotosInmueble.layer.bounds = self.view.layer.bounds;
+        tableFotosInmueble.isScrollEnabled = false;
+        
+        data.append(Cell("Perspectiva Frontal"));
+        data.append(Cell("Perspectiva Izquierda"));
+        data.append(Cell("Perspectiva Derecha"));
+        data.append(Cell("Perspectiva Posterior"));
+        
+        tableFotosInmueble.dataSource = self;
+        tableFotosInmueble.translatesAutoresizingMaskIntoConstraints = true;
         
     }
 
@@ -36,7 +53,9 @@ class FotosInmuebleController: UIViewController,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = tableFotosInmueble.dequeueReusableCell(withIdentifier:"cellFotosInmueble") as! FotosInmuebleCellController;
         
-        item.labelPerspectiva.text = data[]
+        item.labelPerspectiva.text = data[indexPath.row].textLabel;
+        item.idString = "\(indexPath.row)";
+        item.controller = self;
         
         return item;
     }
