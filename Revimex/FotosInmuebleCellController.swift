@@ -38,6 +38,7 @@ class FotosInmuebleCellController: UITableViewCell {
                 controller.present(imagePicker, animated: true, completion: nil);
             }else{
                 controller.present(Utilities.showAlertSimple("Error", "La camara de su dispositivo no esta disponible"), animated: true);
+                self.isSelected = false;
             }
         }
     }
