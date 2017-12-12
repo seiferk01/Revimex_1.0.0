@@ -14,6 +14,19 @@ class InfoController: UIViewController {
     @IBOutlet weak var contenedorCarousel: UIScrollView!
     @IBOutlet weak var favoritosBtn: UIButton!
     
+    @IBOutlet weak var calleColonia: UILabel!
+    @IBOutlet weak var estadoMunicipio: UILabel!
+    @IBOutlet weak var tipo: UILabel!
+    @IBOutlet weak var precio: UILabel!
+    @IBOutlet weak var metros: UILabel!
+    @IBOutlet weak var terreno: UILabel!
+    @IBOutlet weak var constuccion: UILabel!
+    @IBOutlet weak var habitaciones: UILabel!
+    @IBOutlet weak var baños: UILabel!
+    
+    var activityIndicator = UIActivityIndicatorView()
+    var background = UIView()
+    
     //variable para el carousel
     var vistaCarouselGrande = UIView()
     var contenedorCarouselGrande = UIScrollView()
@@ -37,6 +50,13 @@ class InfoController: UIViewController {
     
     //llamado a los detalles de la propiedad seleccionada
     func requestDetails() {
+        
+        //indicador de loading
+        activityIndicator = UIActivityIndicatorView()
+        background = Utilities.activityIndicatorBackground(activityIndicator: activityIndicator)
+        background.center = self.view.center
+        view.addSubview(background)
+        activityIndicator.startAnimating()
         
         let urlRequestDetails = "http://18.221.106.92/api/public/propiedades/detalle"
         
@@ -152,6 +172,8 @@ class InfoController: UIViewController {
             descripcion.text = "Descripcion no disponible"
         }
         
+        
+        
         descripcion.text = descripcion.text + "\n\nUBICACION\n"+propiedad.calle+" "+" "+propiedad.colonia+", "+propiedad.municipio+" "+propiedad.estado+" "+propiedad.cp+"."
         
         descripcion.text = descripcion.text + "\n\nINFORMACION\n"+propiedad.tipo+propiedad.habitaciones+propiedad.estacionamiento+propiedad.niveles+propiedad.patios+propiedad.terreno+propiedad.construccion+propiedad.precio
@@ -161,11 +183,11 @@ class InfoController: UIViewController {
         //muestra las fotos
         showPhotos()
         
+        
     }
     
     //muestra las fotos
     func showPhotos() {
-        
         let ancho = contenedorCarousel.bounds.width
         let largo = contenedorCarousel.bounds.height
         
@@ -176,6 +198,7 @@ class InfoController: UIViewController {
         contenedorCarousel.contentSize = CGSize(width: ancho * CGFloat(propiedad.fotos.count), height: largo)
         contenedorCarousel.isPagingEnabled = true
         contenedorCarousel.showsHorizontalScrollIndicator = false
+        
         
         for (index, url) in propiedad.fotos.enumerated() {
             
@@ -188,7 +211,8 @@ class InfoController: UIViewController {
             
         }
         
-        
+        activityIndicator.stopAnimating()
+        background.removeFromSuperview()
     }
     
     
@@ -230,6 +254,7 @@ class InfoController: UIViewController {
         vistaCarouselGrande.addSubview(contenedorCarouselGrande)
         
         view.addSubview(vistaCarouselGrande)
+        
     }
     
     //oculta el carousel grande

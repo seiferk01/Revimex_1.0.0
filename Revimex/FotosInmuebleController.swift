@@ -36,7 +36,7 @@ class FotosInmuebleController: UIViewController,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = tableFotosInmueble.dequeueReusableCell(withIdentifier:"cellFotosInmueble") as! FotosInmuebleCellController;
         
-        item.labelPerspectiva.text = data[]
+        //item.labelPerspectiva.text = data[]
         
         return item;
     }
