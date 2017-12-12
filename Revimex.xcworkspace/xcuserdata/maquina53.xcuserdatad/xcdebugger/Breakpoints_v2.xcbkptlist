@@ -2,4 +2,70 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Revimex/UbicacionInmuebleController.swift"
+            timestampString = "534725974.421047"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "colEvent()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Revimex.UbicacionInmuebleController.(colEvent in _C824EB68E1A46C0C44A0660A9BF97265)() -&gt; ()"
+                  moduleName = "Revimex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maquina53/XCodeProjects/Revimex/Revimex/UbicacionInmuebleController.swift"
+                  timestampString = "534725001.202401"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Eureka.AlertSelectorCell&lt;Swift.String&gt;, Eureka.ActionSheetRow&lt;Swift.String&gt;) -&gt; () in Revimex.UbicacionInmuebleController.(colEvent in _C824EB68E1A46C0C44A0660A9BF97265)() -&gt; ()"
+                  moduleName = "Revimex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maquina53/XCodeProjects/Revimex/Revimex/UbicacionInmuebleController.swift"
+                  timestampString = "534725001.205827"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Revimex/UbicacionInmuebleController.swift"
+            timestampString = "534725974.422066"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "colEvent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

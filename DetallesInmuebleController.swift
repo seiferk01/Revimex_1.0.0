@@ -4,10 +4,10 @@ import Eureka
 class DetallesInmuebleController: FormViewController{
     
     let tipoInmueble = ["Casa","Departamento","Residencia"];
-    let nums = ["1","2","3","4","5"];
+    let nums = ["0","1","2","3","4","5"];
     let serviciosBasicos = ["Vigilancia","Elevador","Interfon","Mantenimeinto"];
     let detalles = ["Amueblado","Acceso a Discapasitados","Posible Ampliación"];
-    let areas = ["Área de Mascotas","Área de Juegos","Área de Descanso","Closet","Cuarto de TV","Cocina","Sala Comedor","Cuarto de Lavado","Terraza","Balcón","Zotehuela","Cisterna","Jardín","Bodega","Salón de Eventos","Gimnasio","piscina","Roofgarden"];
+    let areas = ["Área de Mascotas","Área de Juegos","Área de Descanso","Closet","Cuarto de TV","Cocina","Sala Comedor","Cuarto de Lavado","Terraza","Balcón","Zotehuela","Cisterna","Jardín","Bodega","Salón de Eventos","Gimnasio","Piscina","Roofgarden"];
     let entorno = ["Zona Ruidosa","Zona de Riesgo","Fraccionamiento Privado"];
     
     override func viewDidLoad() {
@@ -22,30 +22,31 @@ class DetallesInmuebleController: FormViewController{
                 row.title = "Recámaras"
                 row.options = nums;
                 row.selectorTitle = "Número de recámaras";
-                row.value = "";
+                row.value = row.options?[0];
             }<<<ActionSheetRow<String>(){ row in
                 row.title = "Baños";
                 row.options = nums;
                 row.selectorTitle = "Número de baños"
+                row.value = row.options?[0];
             }<<<IntRow(){ row in
                 row.title = "Superficie del terreno";
-                row.value = 0;
+                row.placeholder = "0";
             }<<<IntRow(){ row in
                 row.title = "Superficie de Construcciòn"
-                row.value = 0;
+                row.placeholder = "0";
             }<<<ActionSheetRow<String>(){ row in
                 row.title = "Niveles";
                 row.options = nums;
                 row.selectorTitle = "Cantidad de niveles";
-                row.value = "";
+                row.value = row.options?[0];
             }<<<ActionSheetRow<String>(){ row in
                 row.title = "Estacionamiento";
                 row.options = nums;
                 row.selectorTitle = "Plazas de estacionamiento"
-                row.value = "";
+                row.value = row.options?[0];
             }<<<IntRow(){ row in
                 row.title = "Años de Atiguedad";
-                row.value = 0;
+                row.placeholder = "0";
             }<<<TextAreaRow("Seleccione los servicios con los que cuente"){ row in
                 row.title = "Ingrese una Descripción de su inmueble"
                 row.placeholder="Descripción...";
