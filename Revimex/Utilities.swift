@@ -112,8 +112,12 @@ var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",c
 
 class Utilities: NSObject {
 
-    public static var GEOCODING_URL:String! = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&components=country:MX&address=";
-    public static var ZIPCODES_URL:String! = "https://api-codigos-postales.herokuapp.com/v2/codigo_postal/";
+    public static let GEOCODING_URL:String! = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&components=country:MX&address=";
+    public static let ZIPCODES_URL:String! = "https://api-codigos-postales.herokuapp.com/v2/codigo_postal/";
+    
+    public static let ESTADOS:String! = "http://18.221.106.92/api/public/propiedades/comboEstado";
+    
+    public static let MUNICIPIOS:String! = "http://18.221.106.92/api/public/propiedades/comboMunicipio";
     
     //recibe una url en tipo string, la procesa y la regresa como imagen
     static func traerImagen(urlImagen: String) -> UIImage{
@@ -138,6 +142,7 @@ class Utilities: NSObject {
         return emailTest.evaluate(with: testStr)
     }
     
+    //recibe un string y comprueba que se un codigo postal valido
     static func isValidZip(_ zipcode: String)-> Bool{
         let zipRegEx = "0[1-9][0-9]{3}|[1-4][0-9]{4}|5[0-9][0-9]{3}";
         let zipTest = NSPredicate(format:"SELF MATCHES %@",zipRegEx);

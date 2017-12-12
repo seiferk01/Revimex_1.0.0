@@ -144,7 +144,7 @@ class InfoUserController: UIViewController {
                 
                 if let data = data{
                     do{
-                        let json = try JSONSerialization.jsonObject(with: data) as! [String:Any?];
+                        _ = try JSONSerialization.jsonObject(with: data) as! [String:Any?];
                     }catch{
                         print(error);
                     }
