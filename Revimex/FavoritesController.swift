@@ -184,7 +184,7 @@ class FavoritesController: UIViewController {
         let contenedorFavoritos = UIScrollView()
         
         contenedorFavoritos.frame = CGRect(x: 0, y: (largoPantalla * (0.07) + (navigationController?.navigationBar.bounds.height)!+20), width: anchoPantalla, height: (largoPantalla * 0.92) - tabBarHeight!)
-        let largoContenido = largoDeFavorito * CGFloat(arrayFavoitos.count)
+        let largoContenido = largoDeFavorito * CGFloat(arrayFavoitos.count) 
         contenedorFavoritos.contentSize = CGSize(width: anchoPantalla, height: largoContenido)
         
         for (index, favorito) in arrayFavoitos.enumerated() {

@@ -107,6 +107,9 @@ var cambioFavoritos = false
 //indicador de linea de negocio (StockController,LineasInfoController)
 var lineaSeleccionada = 0
 
+//variable para contener los datos entregados por el json de detalles(InfoController,UbicationController)
+var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",cp: "",estacionamiento: "",estado: "",habitaciones: "",idp: "",lat: "0",lon: "0",municipio: "",niveles: "",origen_propiedad: "",patios: "",precio: "",terreno: "",tipo: "",descripcion: "",pros: "",wcs: "",fotos: [])
+
 class Utilities: NSObject {
 
     public static let GEOCODING_URL:String! = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&components=country:MX&address=";
