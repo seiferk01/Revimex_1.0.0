@@ -89,6 +89,10 @@
 		529858B11FDF3B3900685F5D /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529858B01FDF3B3900685F5D /* InfoController.swift */; };
 		529858B31FDF3B5700685F5D /* UbicationContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529858B21FDF3B5700685F5D /* UbicationContoller.swift */; };
 		529C2CE51FDB823B007E8427 /* backStock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529C2CE41FDB823B007E8427 /* backStock.jpg */; };
+		529F014F1FE219AC00BEC068 /* carritoSeleccionado.png in Resources */ = {isa = PBXBuildFile; fileRef = 529F014B1FE219A300BEC068 /* carritoSeleccionado.png */; };
+		529F01501FE219AC00BEC068 /* habitaciones.png in Resources */ = {isa = PBXBuildFile; fileRef = 529F014C1FE219A500BEC068 /* habitaciones.png */; };
+		529F01511FE219AC00BEC068 /* baños.png in Resources */ = {isa = PBXBuildFile; fileRef = 529F014D1FE219A600BEC068 /* baños.png */; };
+		529F01531FE21DF000BEC068 /* carritoDisponible.png in Resources */ = {isa = PBXBuildFile; fileRef = 529F01521FE21DEF00BEC068 /* carritoDisponible.png */; };
 		52A116D91FA7B50C002F6B59 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A116D81FA7B50C002F6B59 /* TableViewCell.swift */; };
 		52A116DB1FA7B962002F6B59 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A116DA1FA7B962002F6B59 /* DescriptionViewController.swift */; };
 		52A4C02C1FACD411003CAF69 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A4C02B1FACD410003CAF69 /* Details.swift */; };
@@ -227,6 +231,10 @@
 		529858B01FDF3B3900685F5D /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		529858B21FDF3B5700685F5D /* UbicationContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbicationContoller.swift; sourceTree = "<group>"; };
 		529C2CE41FDB823B007E8427 /* backStock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backStock.jpg; sourceTree = "<group>"; };
+		529F014B1FE219A300BEC068 /* carritoSeleccionado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carritoSeleccionado.png; sourceTree = "<group>"; };
+		529F014C1FE219A500BEC068 /* habitaciones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = habitaciones.png; sourceTree = "<group>"; };
+		529F014D1FE219A600BEC068 /* baños.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baños.png"; sourceTree = "<group>"; };
+		529F01521FE21DEF00BEC068 /* carritoDisponible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carritoDisponible.png; sourceTree = "<group>"; };
 		52A116D81FA7B50C002F6B59 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		52A116DA1FA7B962002F6B59 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		52A4C02B1FACD410003CAF69 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
@@ -327,6 +335,10 @@
 		526DC5F41FB2396B007CD85F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				529F014D1FE219A600BEC068 /* baños.png */,
+				529F01521FE21DEF00BEC068 /* carritoDisponible.png */,
+				529F014B1FE219A300BEC068 /* carritoSeleccionado.png */,
+				529F014C1FE219A500BEC068 /* habitaciones.png */,
 				529858AE1FDF151600685F5D /* navBarBackground.png */,
 				529C2CE41FDB823B007E8427 /* backStock.jpg */,
 				11965E8F1FDB08AD009681F2 /* brokerage.jpeg */,
@@ -606,7 +618,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52B720151FA785F500F447DA /* LaunchScreen.storyboard in Resources */,
+				529F014F1FE219AC00BEC068 /* carritoSeleccionado.png in Resources */,
 				526DC5E51FB157AE007CD85F /* revimex.png in Resources */,
+				529F01511FE219AC00BEC068 /* baños.png in Resources */,
 				5221BE131FBCC02900D0F89C /* filterButton.png in Resources */,
 				526DC61D1FB4C129007CD85F /* propiedades.png in Resources */,
 				526DC5FE1FB25554007CD85F /* principalMarker.png in Resources */,
@@ -623,6 +637,7 @@
 				11965E9A1FDB08AE009681F2 /* inversionista.jpg in Resources */,
 				5221BE081FBB784700D0F89C /* school.png in Resources */,
 				529858AF1FDF151700685F5D /* navBarBackground.png in Resources */,
+				529F01501FE219AC00BEC068 /* habitaciones.png in Resources */,
 				526DC5F11FB21D9F007CD85F /* restaurantes.png in Resources */,
 				1125AA5B1FD5E61F00B26316 /* menu-horizontal-100.png in Resources */,
 				52B720101FA785F500F447DA /* Main.storyboard in Resources */,
@@ -639,6 +654,7 @@
 				526DC5F01FB21D9F007CD85F /* Tiendas.png in Resources */,
 				526DC61F1FB4F43F007CD85F /* buscar.png in Resources */,
 				521E56241FC669B600D38947 /* compartir.ico in Resources */,
+				529F01531FE21DF000BEC068 /* carritoDisponible.png in Resources */,
 				11965E971FDB08AE009681F2 /* mercadoAbierto.jpeg in Resources */,
 				526DC5ED1FB21D9F007CD85F /* parques.png in Resources */,
 				5221BE0D1FBB7DBA00D0F89C /* houseMarker.png in Resources */,
@@ -1043,7 +1059,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PXENVG785Y;
+				DEVELOPMENT_TEAM = 9K97DWZW76;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1068,7 +1084,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PXENVG785Y;
+				DEVELOPMENT_TEAM = 9K97DWZW76;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -53,7 +53,9 @@ class FotosInmuebleController: UIViewController,UITableViewDataSource,UIImagePic
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = tableFotosInmueble.dequeueReusableCell(withIdentifier:"cellFotosInmueble") as! FotosInmuebleCellController;
         
-        //item.labelPerspectiva.text = data[]
+        item.labelPerspectiva.text = data[indexPath.row].textLabel;
+        item.idString = "\(indexPath.row)";
+        item.controller = self;
         
         return item;
     }

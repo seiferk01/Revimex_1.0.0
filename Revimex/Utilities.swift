@@ -15,6 +15,7 @@ import UIKit
     userId -> almacena el id de usuario
 */
 
+//oculta el teclado al dar tap fuera del campo de texto
 extension UIViewController
 {
     func hideKeyboard()
@@ -32,10 +33,10 @@ extension UIViewController
     }
 }
 
-
+//para generar bordes
 extension UIView {
     
-    // Example use: myView.addBorder(toSide: .Left, withColor: UIColor.redColor().CGColor, andThickness: 1.0)
+    // Example use: myView.addBorder(toSide: .Bottom, withColor: UIColor.red.cgColor, andThickness: 1.0)
     
     enum ViewSide {
         case Left, Right, Top, Bottom
@@ -57,7 +58,7 @@ extension UIView {
     }
 }
 
-
+//permite generar un color personalizado a partir de un codigo hexadecimal
 extension UIColor {
     public convenience init?(hexString: String) {
         let r, g, b, a: CGFloat
@@ -91,7 +92,7 @@ var azul = UIColor(hexString: "#48B1F3ff")
 var azulClaro = UIColor(hexString: "#F0F5F6ff")
 var gris = UIColor(hexString: "#3B3B3Bff")
 
-//variable global, obtiene un valor en TableViewCell.swift dependiendo de la propiedad que se selecciono(StockConroller,SearchController,DescriptionViewController,FavoritosController,TableViewCell)
+//variable global, obtiene un valor en TableViewCell.swift dependiendo de la propiedad que se selecciono(StockConroller,SearchController,InfoController,UbicationController,FavoritosController,TableViewCell)
 var idOfertaSeleccionada = ""
 
 //botones de la barra de navegacion (StockController)
@@ -101,7 +102,7 @@ var imagenCuentaBtn = UIButton()
 //indica el tipo de estilo para la barra de navegacion(LoginController,StockCotroller,FavoritosController,InfoUserController)
 var navBarStyleCase = 0
 
-//bandera para refresacar la vista de favoritos (DescriptionViewController,FavoritosController)
+//bandera para refresacar la vista de favoritos (InfoController,FavoritosController)
 var cambioFavoritos = false
 
 //indicador de linea de negocio (StockController,LineasInfoController)
@@ -109,6 +110,9 @@ var lineaSeleccionada = 0
 
 //variable para contener los datos entregados por el json de detalles(InfoController,UbicationController)
 var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",cp: "",estacionamiento: "",estado: "",habitaciones: "",idp: "",lat: "0",lon: "0",municipio: "",niveles: "",origen_propiedad: "",patios: "",precio: "",terreno: "",tipo: "",descripcion: "",pros: "",wcs: "",fotos: [])
+
+//variable para obtener la imagen de fondo de la descripcion
+var descriptionImageBackground = UIImage()
 
 class Utilities: NSObject {
 
@@ -120,7 +124,7 @@ class Utilities: NSObject {
     public static let MUNICIPIOS:String! = "http://18.221.106.92/api/public/propiedades/comboMunicipio";
     
     //recibe una url en tipo string, la procesa y la regresa como imagen
-    static func traerImagen(urlImagen: String) -> UIImage{
+    public static func traerImagen(urlImagen: String) -> UIImage{
         var imagen = UIImage(named: "imagenNoEncontrada.png")
         
         let imgURL = NSURL(string: urlImagen)
@@ -135,7 +139,7 @@ class Utilities: NSObject {
     }
     
     //recibe una cadena de texto y regresa true si es un correo valido
-    static func isValidEmail(testStr: String) -> Bool {
+    public static func isValidEmail(testStr: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
@@ -143,14 +147,14 @@ class Utilities: NSObject {
     }
     
     //recibe un string y comprueba que se un codigo postal valido
-    static func isValidZip(_ zipcode: String)-> Bool{
+    public static func isValidZip(_ zipcode: String)-> Bool{
         let zipRegEx = "0[1-9][0-9]{3}|[1-4][0-9]{4}|5[0-9][0-9]{3}";
         let zipTest = NSPredicate(format:"SELF MATCHES %@",zipRegEx);
         return zipTest.evaluate(with: zipcode);
     }
     
     //crea el fondo del UIActivityIndicatorView
-    static func activityIndicatorBackground(activityIndicator: UIActivityIndicatorView)->UIView{
+    public static func activityIndicatorBackground(activityIndicator: UIActivityIndicatorView)->UIView{
         
         let background = UIView()
         
@@ -183,5 +187,6 @@ class Utilities: NSObject {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         return alert;
     }
+    
     
 }

@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        application.isStatusBarHidden = true
+        
         IQKeyboardManager.sharedManager().enable = true;
         
         //si ya se tiene un id de usuario hace una llamada al login para verificar que sigue activo
@@ -82,7 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         
     }
-    
     
     //llamada de login 
     func logIn(){

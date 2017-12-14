@@ -31,8 +31,8 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
     var construccion = 0
     var recamaras = 0
     var banos = 0
-    var precioMax = 100000000000
-    var precioMaxBase = 100000000000
+    var precioMax = 1000000000
+    var precioMaxBase = 1000000000
     var precioMin = 0
     
     

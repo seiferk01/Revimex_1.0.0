@@ -11,6 +11,8 @@ import Mapbox
 
 class UbicationContoller: UIViewController, MGLMapViewDelegate {
     
+    @IBOutlet weak var sevicesConatiner: UIView!
+    
     //variables para mapbox
     var mapView: MGLMapView = MGLMapView(frame: CGRect(x: 0.0,y: 0.0,width: 0,height: 0), styleURL: URL(string: "mapbox://styles/mapbox/light-v9"))
     var nombreImagenMarker: String = ""
@@ -19,7 +21,9 @@ class UbicationContoller: UIViewController, MGLMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        sevicesConatiner.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        view?.backgroundColor = UIColor(white: 1, alpha: 0)
+        
         crearMapa()
     }
 
@@ -33,11 +37,12 @@ class UbicationContoller: UIViewController, MGLMapViewDelegate {
         
         let url = URL(string: "mapbox://styles/mapbox/light-v9")
         
-        mapView = MGLMapView(frame: CGRect(x: 0.0,y: (screenSize.height - 300),width: screenSize.width,height: 295.0), styleURL: url)
+        mapView = MGLMapView(frame: CGRect(x: 0,y: 0,width: screenSize.width,height: screenSize.height), styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: Double(propiedad.lat)!, longitude: Double(propiedad.lon)!), zoomLevel: 10, animated: false)
         mapView.delegate = self
         view.addSubview(mapView)
+        view.sendSubview(toBack: mapView)
         
         //agrega el marcador principal
         addPrincipalMarker()

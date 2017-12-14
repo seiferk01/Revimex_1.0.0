@@ -100,17 +100,11 @@ class StockController: UIViewController,UITableViewDataSource {
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.black.withAlphaComponent(0.5)
         
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navBarBackground.png"), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        
         let logo = UIImage(named: "revimex.png")
         let contenedorLogo = UIImageView(image:logo)
         contenedorLogo.frame = CGRect(x: navigationBarSizeWidth*0.3,y: 0.0,width: navigationBarSizeWidth*0.4,height: navigationBarSizeHeigth)
         
         navigationController?.navigationBar.addSubview(contenedorLogo)
-        
         
     }
     
