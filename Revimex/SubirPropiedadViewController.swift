@@ -10,10 +10,38 @@ import UIKit
 
 class SubirPropiedadViewController: UIViewController{
     
+    
+    @IBOutlet weak var anchoBtnAnt: NSLayoutConstraint!
+    @IBOutlet weak var altoBtnAnt: NSLayoutConstraint!
+    @IBOutlet weak var anchoBtnSig: NSLayoutConstraint!
+    @IBOutlet weak var altoBtnSig: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var cnVwFormularios: UIView!
     
     @IBOutlet weak var btnSig: UIButton!
     @IBOutlet weak var btnAnt: UIButton!
+    
+    private struct orgBtn{
+        private var orgAnt: UIButton!;
+        private var orgSig: UIButton!;
+        init(orgAnt:UIButton!,orgSig:UIButton!) {
+            self.orgAnt = orgAnt;
+            self.orgSig = orgSig;
+        }
+        
+        func getOrgAnt()->UIButton!{
+            return self.orgAnt;
+        }
+        
+        func getOrgSig()->UIButton!{
+            return self.orgSig;
+        }
+        
+    };
+    
+    private var org_Btn:orgBtn!;
+    
     
     var detallesInmueble: DetallesInmuebleController!;
     var ubicacionInmueble: UbicacionInmuebleController!;
@@ -48,16 +76,17 @@ class SubirPropiedadViewController: UIViewController{
         
         
         btnSig = Utilities.genearSombras(btnSig);
-        btnSig.layer.cornerRadius = 18;
-        btnSig.titleLabel?.font = UIFont.fontAwesome(ofSize: 34);
-        btnSig.setTitle(String.fontAwesomeIcon(name: .chevronRight), for: .normal);
-        btnSig.frame.size = CGSize(width: 40, height: 40);
+        btnSig.tag = 2;
+        
+        let laySig = btnSig.layer;
+        laySig.cornerRadius = 18;
+        btnSig = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronRight), btn: btnSig,id: 1, layer: laySig, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actSig(_:)));
         
         btnAnt = Utilities.genearSombras(btnAnt);
-        btnAnt.layer.cornerRadius = 18;
-        btnAnt.titleLabel?.font = UIFont.fontAwesome(ofSize: 34);
-        btnAnt.setTitle(String.fontAwesomeIcon(name: .chevronLeft), for: .normal);
-        btnAnt.frame.size = CGSize(width: 40, height: 40);
+        btnAnt.tag = 1;
+        let layAnt = btnAnt.layer;
+        layAnt.cornerRadius = 18;
+        btnAnt = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronLeft), btn: btnAnt, id: 1, layer: layAnt, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actAnt(_:)));
         
         actualizar();
         
@@ -82,27 +111,43 @@ class SubirPropiedadViewController: UIViewController{
     
     private func actualizar(){
         if(cont == 0){
-            btnAnt.isEnabled = false;
-            btnAnt.isOpaque = true;
+            let layAnt = btnAnt.layer;
+            layAnt.cornerRadius = 0;
+            btnAnt = cambiarBtn(titulo: "Cancelar", btn: btnAnt, id: 0, layer: layAnt, font: UIFont(name: "HelveticaNeue-Bold", size: 20)!, accion: #selector(cancelar));
         }else{
-            btnAnt.isEnabled = true;
-            btnAnt.isOpaque = false;
+            let layAnt = btnAnt.layer;
+            layAnt.cornerRadius = 18;
+            btnAnt = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronLeft), btn: btnAnt, id: 1, layer: layAnt, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actAnt(_:)));
         }
         if(cont == 2){
-            btnSig.isEnabled = false;
-            btnSig.isOpaque = true;
+            let laySig = btnSig.layer;
+            laySig.cornerRadius = 0;
+            btnSig = cambiarBtn(titulo: "Guardar", btn: btnSig,id: 0,layer: laySig,font: UIFont(name: "HelveticaNeue-Bold", size: 20)!,accion: #selector(guardar));
         }else{
-            btnSig.isEnabled = true;
-            btnSig.isOpaque = false;
+            let laySig = btnSig.layer;
+            laySig.cornerRadius = 18;
+            btnSig = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronRight), btn: btnSig,id: 1, layer: laySig, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actSig(_:)));
         }
         actualViewController = views[cont];
     }
     
     @IBAction func actSig(_ sender: UIButton) {
-        if(cont<3){
-            cont = cont + 1;
-            actualizar();
+        if(validar()){
+            if(cont<3){
+                cont = cont + 1;
+                actualizar();
+            }
+        }else{
+            present(Utilities.showAlertSimple("Aviso", "Por favor llene los campos en rojo"), animated: true);
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false;
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true;
     }
     
     @IBAction func actAnt(_ sender: UIButton) {
@@ -116,7 +161,67 @@ class SubirPropiedadViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
+    private func validar()->Bool{
+        let actual = actualViewController as! FormValidate;
+        return actual.esValido();
+    }
+    
+    private func cambiarBtn(titulo:String,btn:UIButton,id:Int,layer: CALayer,font:UIFont,accion: Selector)->UIButton{
+        
+        btn.layer.cornerRadius = layer.cornerRadius;
+        
+        btn.titleLabel?.font = font ;
+
+        btn.setTitle(titulo, for: .normal);
+        
+        btn.removeTarget(nil, action: nil, for: .allEvents);
+        btn.addTarget(self, action:accion, for: .touchUpInside);
+        
+        switch id {
+        case 0:
+            if(btn.tag == 1){
+                altoBtnAnt.constant = 16;
+                anchoBtnAnt.constant = 260;
+            }else{
+                altoBtnSig.constant = 16;
+                anchoBtnSig.constant = 260;
+            }
+            break;
+        case 1:
+            if(btn.tag == 1){
+                altoBtnAnt.constant = 8;
+                anchoBtnAnt.constant = 319;
+            }else{
+                altoBtnSig.constant = 8;
+                anchoBtnSig.constant = 319;
+            }
+            break;
+        default:
+            print("ERROR");
+        }
+        
+        return btn;
+        
+    }
+    
+    @objc func cancelar(){
+        navigationController?.popViewController(animated:true);
+        self.dismiss(animated: true, completion: nil);
+    }
+    
+    @objc func guardar(){
+        if(actualViewController as! FormValidate).esValido(){
+            let rowsDetalles = (detallesInmueble)?.obtValores()!;
+            let rowsUbicacion = (ubicacionInmueble)?.obtValores()!;
+            let rowsFotos = (fotosInmueble)?.obtValores()!;
+            let rowTotal = [
+                "detallesInmueble" : rowsDetalles!,
+                "ubicacionInmueble" : rowsUbicacion!,
+                "fotosInmueble" : rowsFotos!
+            ];
+            print(rowTotal);
+        };
+    }
     
 }

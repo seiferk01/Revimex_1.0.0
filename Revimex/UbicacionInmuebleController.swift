@@ -9,7 +9,11 @@
 import UIKit
 import Eureka
 
-class UbicacionInmuebleController: FormViewController {
+class UbicacionInmuebleController: FormViewController,FormValidate {
+    var rows: [String : Any?]?
+    
+
+    
     
     private let tipoCalleArray = ["Andador","Avenida","Bulevar","Calle","Callejón","Calzada","Camino Cerrada","Circuito","Conjunto Habitacional","Pasaje","Privada","Prolongación"];
     
@@ -28,11 +32,12 @@ class UbicacionInmuebleController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         manualFlag = false;
-        
+        rows = [:];
         codeZip = ZipCodeRow(){ row in
             row.title = "Código Postal";
             row.placeholder = "XXXXX";
             row.tag = "code_zip";
+            row.add(rule: RuleRequired());
         };
         
         edo = ActionSheetRow<String>(){row in
@@ -40,6 +45,7 @@ class UbicacionInmuebleController: FormViewController {
             row.options = [""];
             row.value = "";
             row.tag = "edo";
+            row.add(rule: RuleRequired());
         };
         
         mun = ActionSheetRow<String>(){row in
@@ -47,6 +53,7 @@ class UbicacionInmuebleController: FormViewController {
             row.options = [""];
             row.value = "";
             row.tag = "mun"
+            row.add(rule: RuleRequired());
         };
         
         col = ActionSheetRow<String>{row in
@@ -54,18 +61,21 @@ class UbicacionInmuebleController: FormViewController {
             row.options = [];
             row.selectorTitle = "Por favor ingrese antes su Código Postal";
             row.tag = "col";
+            row.add(rule: RuleRequired());
         }
         
         calle = TextRow(){ row in
             row.title = "Calle";
             row.placeholder = "...";
             row.tag = "calle";
+            row.add(rule: RuleRequired());
         }
         
         numExt = IntRow(){row in
             row.title = "Número Exterior";
             row.tag = "numExt";
-            row.placeholder = "Nº.  "
+            row.placeholder = "Nº.  ";
+            row.add(rule: RuleRequired());
         }
         
         mnz = TextRow(){row in
@@ -85,6 +95,7 @@ class UbicacionInmuebleController: FormViewController {
             row.options = tipoCalleArray;
             row.value = row.options?[0];
             row.tag = "tipoCalle";
+            row.add(rule: RuleRequired());
         }
         
         form+++Section("Ubicacion de su Inmueble")<<<codeZip<<<edo<<<mun<<<col<<<calle<<<numExt<<<mnz<<<lote<<<tipoCalle;
@@ -107,21 +118,28 @@ class UbicacionInmuebleController: FormViewController {
                 if(Utilities.isValidZip((row.value)!)){
                     let urlZip = Utilities.ZIPCODES_URL+(row.value?.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines))!;
                     self.datosByZipCode(urlZip){datosZip in
-                        OperationQueue.main.addOperation {
-                            self.manualFlag = false;
+                        
+                        if (datosZip["colonias"] as! [String]).count>0{
                             
-                            self.col.options = (datosZip["colonias"] as! [String]);
-                            self.col.selectorTitle = "Ingrese su Colonia";
-                            self.col.value = (self.col.options)?[0];
-                            
-                            self.col.reload();
-                            
-                            self.mun.value = datosZip["municipio"] as? String;
-                            self.mun.reload();
-                            
-                            self.edo.value = datosZip["estado"] as? String;
-                            self.edo.reload();
-                            
+                            OperationQueue.main.addOperation {
+                                self.manualFlag = false;
+                                self.col.options = (datosZip["colonias"] as! [String]);
+                                self.col.selectorTitle = "Ingrese su Colonia";
+                                self.col.value = (self.col.options)?[0];
+                                
+                                self.col.reload();
+                                
+                                self.mun.value = datosZip["municipio"] as? String;
+                                self.mun.reload();
+                                
+                                self.edo.value = datosZip["estado"] as? String;
+                                self.edo.reload();
+                                
+                            }
+                        }else{
+                            OperationQueue.main.addOperation {
+                                self.present(Utilities.showAlertSimple("Error", "El codigo postal es incorrecto"), animated: true);
+                            }
                         }
                     }
                 }
@@ -261,9 +279,52 @@ class UbicacionInmuebleController: FormViewController {
         }
     }
     
+    
+    func validar(){
+        rows![codeZip.tag!] = self.codeZip.validate();
+        rows![edo.tag!] = self.edo.validate();
+        rows![mun.tag!] = self.mun.validate();
+        rows![col.tag!] = self.col.validate();
+        rows![calle.tag!] = self.calle.validate();
+        rows![numExt.tag!] = self.numExt.validate();
+        rows![mnz.tag!] = self.mnz.validate();
+        rows![lote.tag!] = self.lote.validate();
+        rows![tipoCalle.tag!] = self.tipoCalle.validate();
+    }
+    
+    func obtValores()->[String:Any?]!{
+        
+        rows![codeZip.tag!] = self.codeZip.value!;
+        rows![edo.tag!] = self.edo.value!;
+        rows![mun.tag!] = self.mun.value!;
+        rows![col.tag!] = self.col.value!;
+        rows![calle.tag!] = self.calle.value!;
+        rows![numExt.tag!] = self.numExt.value!;
+        rows![mnz.tag!] = self.mnz.value;
+        rows![lote.tag!] = self.lote.value;
+        rows![tipoCalle.tag!] = self.tipoCalle.value;
+        
+        return self.rows;
+    }
+    
+    func esValido() -> Bool {
+        var valido = true;
+        validar();
+        let keys = rows?.keys;
+        for key in keys!{
+            if(rows![key] as! [ValidationError?]).count>0{
+                let row = form.rowBy(tag: key);
+                row?.baseCell.textLabel?.textColor = .red;
+                valido = false;
+            }
+        }
+        return valido;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 }
