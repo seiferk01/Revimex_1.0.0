@@ -9,7 +9,9 @@
 import UIKit
 import FontAwesome_swift
 
-class FotosInmuebleCellController: UITableViewCell {
+class FotosInmuebleCellController: UITableViewCell,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    let imagePicker = UIImagePickerController();
     
     public var idString:String!;
     public var controller:FotosInmuebleController!;
@@ -30,17 +32,52 @@ class FotosInmuebleCellController: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if(selected){
-            if(UIImagePickerController.isSourceTypeAvailable(.camera)){
-                let imagePicker = UIImagePickerController();
-                imagePicker.delegate = controller;
-                imagePicker.sourceType = .camera;
-                imagePicker.allowsEditing = true;
-                controller.present(imagePicker, animated: true, completion: nil);
-            }else{
-                controller.present(Utilities.showAlertSimple("Error", "La camara de su dispositivo no esta disponible"), animated: true);
-                self.isSelected = false;
-            }
+            obtenerImagen();
         }
     }
 
+    
+    func obtenerImagen(){
+        let alert = UIAlertController(title: "Agregar "+labelPerspectiva.text!, message: "¿Desea tomar una fotografía o agregar una de su galería?", preferredStyle: UIAlertControllerStyle.alert);
+        alert.addAction(UIAlertAction(title:"Cámara",style: UIAlertActionStyle.default,handler: { action in
+            self.tomarFoto();
+        }))
+        alert.addAction(UIAlertAction(title: "Galería", style: UIAlertActionStyle.default, handler: { action in
+            self.abrirGaleria();
+        }))
+        controller.present(alert, animated: true);
+    }
+    
+    func tomarFoto(){
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)){
+            self.imagePicker.delegate = self;
+            self.imagePicker.sourceType = .camera;
+            self.imagePicker.allowsEditing = true;
+            self.controller.present(imagePicker, animated: true, completion: nil);
+        }else{
+            controller.present(Utilities.showAlertSimple("Error", "La camara de su dispositivo no esta disponible"), animated: true);
+            self.isSelected = false;
+        }
+    }
+    
+    func abrirGaleria(){
+        if(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+            self.imagePicker.delegate = self
+            self.imagePicker.sourceType = .photoLibrary;
+            self.imagePicker.allowsEditing = true;
+            self.controller.present(imagePicker, animated: true, completion: nil);
+            
+        }else{
+            controller.present(Utilities.showAlertSimple("Error", "La Galería no esta disponible"), animated: true);
+            self.isSelected = false;
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage;
+        imgPerspectiva.image = image;
+        controller.setImgVw(idName: idString,img: image);
+        self.imagePicker.dismiss(animated: true, completion: nil);
+    }
+    
 }
