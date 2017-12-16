@@ -30,7 +30,8 @@ class InfoController: UIViewController {
     @IBOutlet weak var habitacionesImage: UIImageView!
     @IBOutlet weak var bañosImage: UIImageView!
     
-    
+    var agregarCarrito = true
+    var idCarrito = -1
     
     var activityIndicator = UIActivityIndicatorView()
     var background = UIView()
@@ -62,6 +63,9 @@ class InfoController: UIViewController {
         
         //verificar favoritos
         self.revisarFavoritos()
+        
+        //verificar carritos
+        self.revisarCarritos()
         
         //request a detalles
         requestDetails()
@@ -412,13 +416,11 @@ class InfoController: UIViewController {
                     }
                     
                     OperationQueue.main.addOperation({
+                        self.favoritosBtn.setBackgroundImage(UIImage(named: "favorites.png") as UIImage?, for: .normal)
                         for favorito in favoritos{
                             if String(favorito) == idOfertaSeleccionada{
                                 self.favoritosBtn.setBackgroundImage(UIImage(named: "favoritoSeleccionado.png") as UIImage?, for: .normal)
                                 break
-                            }
-                            else{
-                                self.favoritosBtn.setBackgroundImage(UIImage(named: "favorites.png") as UIImage?, for: .normal)
                             }
                         }
                     })
@@ -428,6 +430,187 @@ class InfoController: UIViewController {
         }
         
     }
+    
+    //***************************funciones carritos**********************************
+    @IBAction func metodoCarrito(_ sender: Any) {
+        
+        if let userId = UserDefaults.standard.object(forKey: "userId") as? Int{
+            if agregarCarrito {
+                agregarAlCarrito(userId: userId)
+            }
+            else{
+                removerDeCarrito()
+            }
+        }
+        else{
+            navBarStyleCase = 3
+            performSegue(withIdentifier: "descriptionToLogin", sender: nil)
+        }
+    }
+    
+    
+    
+    func agregarAlCarrito(userId: Int) {
+        
+        let urlRequestCarritos = "http://18.221.106.92/api/public/cart"
+        
+        guard let url = URL(string: urlRequestCarritos) else { return }
+        
+        var request = URLRequest (url: url)
+        request.httpMethod = "POST"
+        
+        let parameters: [String:Any] = [
+            "user_id" : userId,
+            "propiedad_id" : idOfertaSeleccionada
+        ]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        print(userId)
+        print(idOfertaSeleccionada)
+        
+        let session  = URLSession.shared
+        
+        session.dataTask(with: request) { (data, response, error) in
+            
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                
+                do {
+                    let json = try JSONSerialization.jsonObject (with: data) as! [String:Any?]
+                    
+                    print(json)
+                    
+                } catch {
+                    print("El error es: ")
+                    print(error)
+                }
+                
+                OperationQueue.main.addOperation({
+                    cambioCarritos = true
+                    self.revisarCarritos()
+                })
+                
+            }
+            }.resume()
+    }
+    
+    
+    
+    func removerDeCarrito() {
+        let urlRequestCarritos = "http://18.221.106.92/api/public/cart/" + String(idCarrito)
+        
+        guard let url = URL(string: urlRequestCarritos) else { return }
+        
+        var request = URLRequest (url: url)
+        request.httpMethod = "DELETE"
+    
+        print(idOfertaSeleccionada)
+        
+        let session  = URLSession.shared
+        
+        session.dataTask(with: request) { (data, response, error) in
+            
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                
+                do {
+                    let json = try JSONSerialization.jsonObject (with: data) as! [String:Any?]
+                    
+                    print(json)
+                    
+                } catch {
+                    print("El error es: ")
+                    print(error)
+                }
+                
+                OperationQueue.main.addOperation({
+                    cambioCarritos = true
+                    self.revisarCarritos()
+                })
+                
+            }
+            }.resume()
+    }
+    
+    
+    
+    func revisarCarritos(){
+        
+        if let userId = UserDefaults.standard.object(forKey: "userId") as? Int{
+            
+            var carritos: [Int] = []
+            
+            let urlCarritos =  "http://18.221.106.92/api/public/cart/" + String(userId)
+            
+            guard let url = URL(string: urlCarritos) else { return }
+            
+            let session  = URLSession.shared
+            
+            session.dataTask(with: url) { (data, response, error) in
+                
+                if let response = response {
+                    print(response)
+                }
+                
+                if let data = data {
+                    
+                    do {
+                        let json = try JSONSerialization.jsonObject (with: data) as! NSDictionary
+                        
+                        if let dat = json["data"] as? NSArray {
+                            
+                            for element in dat {
+                                if let carrito = element as? NSDictionary{
+                                    if let idPropiedad = carrito["propiedad_id"] as? Int{
+                                        carritos.append(idPropiedad)
+                                    }
+                                    if let idCart = carrito["id"] as? Int{
+                                        self.idCarrito = idCart
+                                    }
+                                }
+                            }
+                            
+                        }
+                        
+                    } catch {
+                        print("El error es: ")
+                        print(error)
+                    }
+                    
+                    OperationQueue.main.addOperation({
+                        
+                        self.carritoBtn.setBackgroundImage(UIImage(named: "carritoDisponible.png") as UIImage?, for: .normal)
+                        self.agregarCarrito = true
+                        
+                        for carrito in carritos{
+                            if String(carrito) == idOfertaSeleccionada{
+                                self.carritoBtn.setBackgroundImage(UIImage(named: "carritoSeleccionado.png") as UIImage?, for: .normal)
+                                self.agregarCarrito = false
+                                break
+                            }
+                        }
+                    })
+                    
+                }
+            }.resume()
+        }
+        
+    }
+    
+    
     
     @IBAction func compartir(_ sender: Any) {
         

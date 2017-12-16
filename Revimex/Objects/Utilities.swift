@@ -105,6 +105,9 @@ var navBarStyleCase = 0
 //bandera para refresacar la vista de favoritos (InfoController,FavoritosController)
 var cambioFavoritos = false
 
+//bandera para refresacar la vista de carrito (InfoController,CarritoController)
+var cambioCarritos = false
+
 //indicador de linea de negocio (StockController,LineasInfoController)
 var lineaSeleccionada = 0
 
@@ -113,6 +116,8 @@ var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",c
 
 //variable para obtener la imagen de fondo de la descripcion
 var descriptionImageBackground = UIImage()
+
+
 
 class Utilities: NSObject {
 

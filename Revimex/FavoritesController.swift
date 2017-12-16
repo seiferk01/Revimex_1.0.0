@@ -19,26 +19,6 @@ class FavoritesController: UIViewController {
         var idPropiedad: String?
     }
     
-    class Favorito{
-        var idPropiedad: String
-        var estado: String
-        var precio: String
-        var referencia: String
-        var fechaAgregado: String
-        var foto: UIImage
-        var urlPropiedad: String
-        
-        init(idPropiedad: String,estado: String, precio: String, referencia: String, fechaAgregado: String, foto: UIImage, urlPropiedad: String){
-            self.idPropiedad = idPropiedad
-            self.estado = estado
-            self.precio = precio
-            self.referencia = referencia
-            self.fechaAgregado = fechaAgregado
-            self.foto = foto
-            self.urlPropiedad = urlPropiedad
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,7 +65,7 @@ class FavoritesController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,arrayFavoitos.count > 0,cambioFavoritos{
+        if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,cambioFavoritos{
             msotrarFavoritos(userId: userId)
         }
     }
@@ -198,6 +178,15 @@ class FavoritesController: UIViewController {
             marcoFavorito.addBorder(toSide: .Top, withColor: UIColor.gray.cgColor, andThickness: 1.0)
             marcoFavorito.addBorder(toSide: .Bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
             
+            let background = UIImageView(image: favorito.foto)
+            background.frame = marcoFavorito.bounds
+            background.frame.size = CGSize(width: anchoPantalla, height: largoDeFavorito - 2)
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+            visualEffectView.frame = background.bounds
+            visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            background.addSubview(visualEffectView)
+            marcoFavorito.addSubview(background)
+            marcoFavorito.sendSubview(toBack: background)
             
             let largoContenedor = marcoFavorito.bounds.height
             

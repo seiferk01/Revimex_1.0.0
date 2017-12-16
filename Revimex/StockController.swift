@@ -98,7 +98,7 @@ class StockController: UIViewController,UITableViewDataSource {
         navigationBarSizeHeigth = (navigationBarSize?.height)!
         
         navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.barTintColor = UIColor.black.withAlphaComponent(0.5)
+        navigationController?.navigationBar.barTintColor = azul?.withAlphaComponent(0.5)
         
         let logo = UIImage(named: "revimex.png")
         let contenedorLogo = UIImageView(image:logo)

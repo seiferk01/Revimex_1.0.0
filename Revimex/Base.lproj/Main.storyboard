@@ -295,6 +295,7 @@
                         <outlet property="botonComenzar" destination="Ld1-6N-3he" id="jeR-EJ-C8b"/>
                         <outlet property="descripcion" destination="EM1-Do-pGJ" id="2bL-5v-Y0m"/>
                         <outlet property="titulo" destination="pI6-HP-jlC" id="jHi-Jf-Nzv"/>
+                        <segue destination="XVQ-pa-MHR" kind="show" identifier="lineasInfoToMercadoAbierto" id="qX8-RH-5n2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="181-Ny-jvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -520,7 +521,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Buscar" image="buscar.png" id="iKS-6s-0xW"/>
                     <connections>
-                        <segue destination="bCG-VS-rd4" kind="show" identifier="mostrarDetalles" id="ivx-oX-pij"/>
+                        <segue destination="bCG-VS-rd4" kind="show" identifier="searchToDetails" id="ivx-oX-pij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e25-be-CI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -550,7 +551,7 @@
         <!--Carrito-->
         <scene sceneID="8ZR-cP-WuU">
             <objects>
-                <viewController id="8F5-Rg-Pvz" sceneMemberID="viewController">
+                <viewController id="8F5-Rg-Pvz" customClass="CarritoController" customModule="Revimex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6QR-el-n6O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,6 +559,9 @@
                         <viewLayoutGuide key="safeArea" id="0W9-KH-gAG"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Carrito" image="carrito.png" id="lw0-4U-Wd4"/>
+                    <connections>
+                        <segue destination="bCG-VS-rd4" kind="show" identifier="carritoToDetails" id="DyS-j9-XMI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kq5-xV-Zqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -994,7 +998,7 @@
                                 <rect key="frame" x="0.0" y="310" width="375" height="470"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-00-KhQ">
-                                        <rect key="frame" x="0.0" y="209" width="375" height="261"/>
+                                        <rect key="frame" x="0.0" y="202" width="375" height="261"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="261" id="Gjj-tp-4u4"/>
@@ -1034,7 +1038,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ha-cA-C1l">
-                                        <rect key="frame" x="0.0" y="52" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="50.5" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10V-hD-2ne">
                                                 <rect key="frame" x="0.0" y="0.0" width="185" height="50"/>
@@ -1047,6 +1051,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="91" id="hmW-V2-nSb"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1076,7 +1081,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGE-7b-dPw">
-                                        <rect key="frame" x="0.0" y="104" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="101" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41m-Du-1Ut">
                                                 <rect key="frame" x="56" y="0.0" width="162" height="50"/>
@@ -1125,7 +1130,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfQ-Wg-aQs">
-                                        <rect key="frame" x="0.0" y="156" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-4N-4zl">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1146,22 +1151,22 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PTU-3I-qTs" secondAttribute="trailing" id="1dx-NT-GCL"/>
-                                    <constraint firstItem="3Ha-cA-C1l" firstAttribute="top" secondItem="PTU-3I-qTs" secondAttribute="bottom" constant="2" id="2rj-bQ-iqU"/>
+                                    <constraint firstItem="3Ha-cA-C1l" firstAttribute="top" secondItem="PTU-3I-qTs" secondAttribute="bottom" constant="0.5" id="2rj-bQ-iqU"/>
                                     <constraint firstItem="MGE-7b-dPw" firstAttribute="leading" secondItem="hfQ-Wg-aQs" secondAttribute="leading" id="5gJ-Mq-mZh"/>
-                                    <constraint firstItem="FmG-00-KhQ" firstAttribute="top" secondItem="hfQ-Wg-aQs" secondAttribute="bottom" constant="3" id="Bvp-is-EnY"/>
+                                    <constraint firstItem="FmG-00-KhQ" firstAttribute="top" secondItem="hfQ-Wg-aQs" secondAttribute="bottom" constant="0.5" id="Bvp-is-EnY"/>
                                     <constraint firstItem="hfQ-Wg-aQs" firstAttribute="leading" secondItem="FmG-00-KhQ" secondAttribute="leading" id="HwX-85-TAx"/>
                                     <constraint firstAttribute="bottom" secondItem="FmG-00-KhQ" secondAttribute="bottom" id="Kvo-gk-7Ye"/>
                                     <constraint firstItem="PTU-3I-qTs" firstAttribute="leading" secondItem="UWf-ie-LRa" secondAttribute="leading" id="PMl-nW-1b7"/>
                                     <constraint firstItem="PTU-3I-qTs" firstAttribute="centerX" secondItem="UWf-ie-LRa" secondAttribute="centerX" id="S72-nS-JC6"/>
                                     <constraint firstItem="MGE-7b-dPw" firstAttribute="trailing" secondItem="hfQ-Wg-aQs" secondAttribute="trailing" id="Ug4-JA-hKf"/>
-                                    <constraint firstItem="hfQ-Wg-aQs" firstAttribute="top" secondItem="MGE-7b-dPw" secondAttribute="bottom" constant="2" id="ZxH-yP-XZH"/>
+                                    <constraint firstItem="hfQ-Wg-aQs" firstAttribute="top" secondItem="MGE-7b-dPw" secondAttribute="bottom" constant="0.5" id="ZxH-yP-XZH"/>
                                     <constraint firstItem="3Ha-cA-C1l" firstAttribute="leading" secondItem="MGE-7b-dPw" secondAttribute="leading" id="gyV-UF-Q6V"/>
                                     <constraint firstItem="PTU-3I-qTs" firstAttribute="top" secondItem="UWf-ie-LRa" secondAttribute="top" id="l9r-Hl-6H2"/>
                                     <constraint firstItem="PTU-3I-qTs" firstAttribute="trailing" secondItem="3Ha-cA-C1l" secondAttribute="trailing" id="lQK-1N-eh4"/>
                                     <constraint firstItem="3Ha-cA-C1l" firstAttribute="trailing" secondItem="MGE-7b-dPw" secondAttribute="trailing" id="ldY-pG-Jkj"/>
                                     <constraint firstItem="PTU-3I-qTs" firstAttribute="leading" secondItem="3Ha-cA-C1l" secondAttribute="leading" id="mNv-06-kJa"/>
                                     <constraint firstItem="hfQ-Wg-aQs" firstAttribute="trailing" secondItem="FmG-00-KhQ" secondAttribute="trailing" id="mWk-my-G2p"/>
-                                    <constraint firstItem="MGE-7b-dPw" firstAttribute="top" secondItem="3Ha-cA-C1l" secondAttribute="bottom" constant="2" id="w3a-2N-Yaf"/>
+                                    <constraint firstItem="MGE-7b-dPw" firstAttribute="top" secondItem="3Ha-cA-C1l" secondAttribute="bottom" constant="0.5" id="w3a-2N-Yaf"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haT-6C-EbO">
@@ -1191,6 +1196,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="JzV-xu-Y6F"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="metodoCarrito:" destination="BIg-WC-4Na" eventType="touchUpInside" id="bLx-Hd-DFt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1715,7 +1723,8 @@
         <image name="restaurantes.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jc2-OJ-Tv8"/>
+        <segue reference="ivx-oX-pij"/>
+        <segue reference="qX8-RH-5n2"/>
         <segue reference="HFz-xn-k93"/>
         <segue reference="wXX-iY-X9e"/>
     </inferredMetricsTieBreakers>

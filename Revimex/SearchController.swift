@@ -594,7 +594,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
     func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
         print("ocultar id de la informacion")
         idOfertaSeleccionada = annotation.subtitle as! String
-        performSegue(withIdentifier: "mostrarDetalles", sender: nil)
+        performSegue(withIdentifier: "searchToDetails", sender: nil)
     }
     
 
