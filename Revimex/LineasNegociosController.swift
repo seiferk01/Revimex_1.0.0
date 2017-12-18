@@ -14,6 +14,7 @@ class LineasNegociosController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCustomBackgroundAndNavbar()
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +22,11 @@ class LineasNegociosController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setCustomBackgroundAndNavbar()
     }
     
     @IBAction func actionBrokerage(_ sender: UIButton) {

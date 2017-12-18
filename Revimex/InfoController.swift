@@ -354,7 +354,7 @@ class InfoController: UIViewController {
                 }.resume()
         }
         else{
-            navBarStyleCase = 2
+            navBarStyleCase = 1
             performSegue(withIdentifier: "descriptionToLogin", sender: nil)
         }
         
@@ -443,7 +443,7 @@ class InfoController: UIViewController {
             }
         }
         else{
-            navBarStyleCase = 3
+            navBarStyleCase = 1
             performSegue(withIdentifier: "descriptionToLogin", sender: nil)
         }
     }
@@ -618,7 +618,7 @@ class InfoController: UIViewController {
             
         }
         else{
-            navBarStyleCase = 2
+            navBarStyleCase = 1
             performSegue(withIdentifier: "descriptionToLogin", sender: nil)
         }
         

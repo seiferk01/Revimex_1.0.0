@@ -27,6 +27,7 @@ class LogInController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //pculta el boton de inicio de secion
         incioSesionBtn.isHidden = true
         
@@ -36,35 +37,20 @@ class LogInController: UIViewController {
         //asigna color tamaño y logo a la barra de navegacion dependiendo de si ya existe un usuario registrado
         switch navBarStyleCase {
             case 0:
-                let screenSize = UIScreen.main.bounds
-                
-                let navBar: UINavigationBar = UINavigationBar()
-                navBar.frame = CGRect(x: 0.0,y: 0.0,width: screenSize.width,height: screenSize.height/3)
-                navBar.backgroundColor = UIColor.black
-                
-                let logo = UIImage(named: "revimex.png")
-                let imageView = UIImageView(image:logo)
-                imageView.frame = CGRect(x: screenSize.width/8,y: screenSize.height/7,width: screenSize.width*(6/8),height: screenSize.height/8)
-                
-                view.addSubview(navBar)
-                navBar.setBackgroundImage(UIImage(), for: .default)
-                navBar.shadowImage = UIImage()
-                navBar.isTranslucent = true
-                navBar.addSubview(imageView)
-                invitadoBtn.isHidden = false
+                print("LoggedOut")
+                self.setLoginNavigationBar()
+                navigationController?.navigationBar.isHidden = true
                 break
-            case 1:
-                print("vista uno")
-                invitadoBtn.isHidden = true
-                break
-            case 2:
-                print("vista dos")
-                invitadoBtn.isHidden = true
+            case 1,2:
+                print("solicitud de registro/solicitud de registro desde navBar con color solido")
+                self.setLoginNavigationBar()
                 break
             default:
-                invitadoBtn.isHidden = true
-            
+                self.setLoginNavigationBar()
+
         }
+        
+        
         
         
         //pide a facebook los datos de ususario en caso de que ya se haya logueado anteriormente
@@ -78,9 +64,26 @@ class LogInController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //self.setLoginNavigationBar()
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         //muestra nuevamente el boton de inicio de sesion en la barra de navegacion al ocultar la pagina
+
         incioSesionBtn.isHidden = false
+
+        if let navigationBarSize = self.navigationController?.navigationBar.bounds{
+            let navigationBarSizeWidth = (navigationBarSize.width)
+            let navigationBarSizeHeigth = (navigationBarSize.height)
+            let logo = UIImage(named: "revimex.png")
+            let contenedorLogo = UIImageView(image:logo)
+            contenedorLogo.frame = CGRect(x: navigationBarSizeWidth*0.3,y: 0.0,width: navigationBarSizeWidth*0.4,height: navigationBarSizeHeigth)
+            self.navigationController?.navigationBar.addSubview(contenedorLogo)
+        }
+        
     }
         
     

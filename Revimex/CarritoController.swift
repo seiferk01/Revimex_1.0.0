@@ -21,6 +21,7 @@ class CarritoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCustomBackgroundAndNavbar()
         
         anchoPantalla = view.bounds.width
         largoPantalla = view.bounds.height
@@ -40,6 +41,7 @@ class CarritoController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setCustomBackgroundAndNavbar()
         
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,cambioCarritos{
             mostrarCarritos(userId: userId)

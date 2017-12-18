@@ -17,6 +17,7 @@ class LineasInfoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCustomBackgroundAndNavbar()
 
         switch lineaSeleccionada {
         case 0:
@@ -67,6 +68,11 @@ class LineasInfoController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setCustomBackgroundAndNavbar()
     }
     
     

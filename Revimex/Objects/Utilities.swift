@@ -15,6 +15,65 @@ import UIKit
     userId -> almacena el id de usuario
 */
 
+//define el fondo de la vista y le da transparencia a la navbar o el fondo blanco y navabar solida
+extension UIViewController{
+    
+    func setCustomBackgroundAndNavbar(){
+        
+        self.navigationController?.navigationBar.isHidden = false
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"fondo.png")!)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        let navigationBarSize = self.navigationController?.navigationBar.bounds
+        let navigationBarSizeWidth = (navigationBarSize?.width)!
+        let navigationBarSizeHeigth = (navigationBarSize?.height)!
+        
+        let logo = UIImage(named: "revimex.png")
+        let contenedorLogo = UIImageView(image:logo)
+        contenedorLogo.frame = CGRect(x: navigationBarSizeWidth*0.3,y: 0.0,width: navigationBarSizeWidth*0.4,height: navigationBarSizeHeigth)
+        
+        self.navigationController?.navigationBar.addSubview(contenedorLogo)
+    }
+    
+    
+    func setLoginNavigationBar(){
+        
+        if let vistas = navigationController?.navigationBar.subviews{
+            for vista in vistas {
+                print(vista)
+                print(type(of: vista))
+                if type(of: vista) == type(of: UIImageView()){
+                    vista.removeFromSuperview()
+                }
+            }
+        }
+        
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        let screenSize = UIScreen.main.bounds
+        
+        let logo = UIImage(named: "revimex.png")
+        let imageView = UIImageView(image:logo)
+        imageView.frame = CGRect(x: screenSize.width/8,y: screenSize.height/4,width: screenSize.width*(6/8),height: screenSize.height/8)
+        
+        view.addSubview(imageView)
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"fondo.png")!)
+
+    }
+}
+
 //oculta el teclado al dar tap fuera del campo de texto
 extension UIViewController
 {

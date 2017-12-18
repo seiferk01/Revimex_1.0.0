@@ -21,6 +21,7 @@ class FavoritesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCustomBackgroundAndNavbar()
         
         anchoPantalla = view.bounds.width
         largoPantalla = view.bounds.height
@@ -29,7 +30,6 @@ class FavoritesController: UIViewController {
         let tapGestureRecognizerMisFavoritos = UITapGestureRecognizer(target: self, action: #selector(misFavoritosTapped(tapGestureRecognizer:)))
         let misFavoritos = UIButton()
         misFavoritos.frame = CGRect(x: 0, y: top, width: anchoPantalla/2, height: largoPantalla * (0.07))
-        misFavoritos.backgroundColor = gris
         misFavoritos.setTitle("Mis Favoritos", for: .normal)
         misFavoritos.setTitleColor(UIColor.white, for: .normal)
         misFavoritos.layer.borderWidth = 1
@@ -39,7 +39,6 @@ class FavoritesController: UIViewController {
         let tapGestureRecognizerSugerencias = UITapGestureRecognizer(target: self, action: #selector(sugerenciasTapped(tapGestureRecognizer:)))
         let sugerencias = UIButton()
         sugerencias.frame = CGRect(x: anchoPantalla/2, y: top, width: anchoPantalla/2, height: largoPantalla * (0.07))
-        sugerencias.backgroundColor = gris
         sugerencias.setTitle("Sugerencias", for: .normal)
         sugerencias.setTitleColor(UIColor.white, for: .normal)
         sugerencias.layer.borderWidth = 1
@@ -64,6 +63,7 @@ class FavoritesController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setCustomBackgroundAndNavbar()
         
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,cambioFavoritos{
             msotrarFavoritos(userId: userId)

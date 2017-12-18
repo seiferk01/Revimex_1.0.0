@@ -48,6 +48,9 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setCustomBackgroundAndNavbar()
+        
         terrenoLabel.text = "0"
         construccionLabel.text = "0"
         recamarasLabel.text = "0"
@@ -64,6 +67,11 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setCustomBackgroundAndNavbar()
+    }
+    
     
     //*****************************funcion para mostrar la vista inicial*******************************
     func inicio() {
@@ -74,7 +82,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         
         print(searchField.bounds.height)
         
-        mapView = MGLMapView(frame: CGRect(x: 0.0,y: 0.0,width: screenSize.width,height: screenSize.height), styleURL: url)
+        mapView = MGLMapView(frame: CGRect(x: 0.0,y: (navigationController?.navigationBar.bounds.height)! + 20,width: screenSize.width,height: screenSize.height - ((navigationController?.navigationBar.bounds.height)! + 20)), styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: 23.634501, longitude: -102.552784), zoomLevel: 4, animated: false)
         mapView.showsUserLocation = true

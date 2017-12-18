@@ -30,7 +30,6 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -67,6 +66,12 @@ class DescriptionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
         if propiedad.fotos.count > 0{
             descriptionImageBackground = Utilities.traerImagen(urlImagen: propiedad.fotos[0])
         }
@@ -82,10 +87,6 @@ class DescriptionViewController: UIViewController {
         view.addSubview(contenedorImagen)
         view.sendSubview(toBack: contenedorImagen)
         view.viewWithTag(100)?.removeFromSuperview()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        restablecerBarraNavegacion()
     }
     
     private func removeInactiveViewController(inactiveViewController: UIViewController?){
@@ -111,13 +112,6 @@ class DescriptionViewController: UIViewController {
     
     @IBAction func showServices(_ sender: Any) {
         actualViewController = arrayViews[1];
-    }
-    
-    func restablecerBarraNavegacion(){
-        
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = nil
-        
     }
     
 }

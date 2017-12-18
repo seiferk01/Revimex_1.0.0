@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.isStatusBarHidden = true;
         
-        
         IQKeyboardManager.sharedManager().enable = true;
         
         //si ya se tiene un id de usuario hace una llamada al login para verificar que sigue activo

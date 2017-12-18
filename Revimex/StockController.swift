@@ -56,16 +56,14 @@ class StockController: UIViewController,UITableViewDataSource {
     //funcion que se ejecuta al cargar la vista
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCustomBackgroundAndNavbar()
         
-//        let fondo = UIImageView(image: UIImage(named: "backStock.jpg"))
-//        fondo.frame = CGRect(x: 0,y: 0,width: view.frame.width,height: view.frame.height)
-//        view.addSubview(fondo)
-//        view.sendSubview(toBack: fondo)
+        let navigationBarSize = self.navigationController?.navigationBar.bounds
+        navigationBarSizeWidth = (navigationBarSize?.width)!
+        navigationBarSizeHeigth = (navigationBarSize?.height)!
+        
         
         tableView.backgroundColor = .clear
-        
-        //genera la barra de navegacion
-        crearBarraNavegacion()
         
         //inserta la imagen de Bienvenida
         imagenBinvenida.image = UIImage(named: "revimexBienvenida.jpg")
@@ -87,27 +85,12 @@ class StockController: UIViewController,UITableViewDataSource {
         
     }
     
-    //***********************funciones para crear la vista***************************
-    func crearBarraNavegacion(){
-        
-        //configuracion de la vista de la barra de navegacion
-        
-        //medidas de la barra de navegacion
-        let navigationBarSize = navigationController?.navigationBar.bounds
-        navigationBarSizeWidth = (navigationBarSize?.width)!
-        navigationBarSizeHeigth = (navigationBarSize?.height)!
-        
-        navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.barTintColor = azul?.withAlphaComponent(0.5)
-        
-        let logo = UIImage(named: "revimex.png")
-        let contenedorLogo = UIImageView(image:logo)
-        contenedorLogo.frame = CGRect(x: navigationBarSizeWidth*0.3,y: 0.0,width: navigationBarSizeWidth*0.4,height: navigationBarSizeHeigth)
-        
-        navigationController?.navigationBar.addSubview(contenedorLogo)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setCustomBackgroundAndNavbar()
     }
     
+    //***********************funciones para crear la vista***************************
     func creaBotonesBarra(){
         
         //si ya se tiene id de usuario muestra el boton de cuenta, si no el de signin
