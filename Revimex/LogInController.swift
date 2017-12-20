@@ -9,13 +9,14 @@
 import UIKit
 import FacebookLogin
 import FBSDKLoginKit
+import Material
+import Motion
 
 class LogInController: UIViewController {
     
-    
-    @IBOutlet weak var usuarioLabel: UITextField!
-    @IBOutlet weak var contrasenaLabel: UITextField!
-    @IBOutlet var invitadoBtn: UIView!
+    let passwordField = TextField()
+    let emailField = TextField()
+    @IBOutlet var invitadoBtn: UIButton!
     
     var usuario = ""
     var contraseña = ""
@@ -26,7 +27,6 @@ class LogInController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //pculta el boton de inicio de secion
         incioSesionBtn.isHidden = true
@@ -50,6 +50,9 @@ class LogInController: UIViewController {
 
         }
         
+        crearCampos()
+        
+        crearBotones()
         
         
         
@@ -66,7 +69,6 @@ class LogInController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //self.setLoginNavigationBar()
         
     }
     
@@ -83,6 +85,71 @@ class LogInController: UIViewController {
             contenedorLogo.frame = CGRect(x: navigationBarSizeWidth*0.3,y: 0.0,width: navigationBarSizeWidth*0.4,height: navigationBarSizeHeigth)
             self.navigationController?.navigationBar.addSubview(contenedorLogo)
         }
+        
+    }
+    
+    
+    func crearCampos(){
+        let screenSize = UIScreen.main.bounds
+        emailField.frame = CGRect(x: screenSize.width * 0.15,y:screenSize.height * 0.35,width:screenSize.width * 0.7,height:screenSize.height * 0.05)
+        emailField.placeholderNormalColor = UIColor.white
+        emailField.placeholder = "Email"
+        emailField.textColor = UIColor.white
+        emailField.isClearIconButtonEnabled = true
+        view.addSubview(emailField)
+        
+        passwordField.frame = CGRect(x: screenSize.width * 0.15,y:screenSize.height * 0.45,width:screenSize.width * 0.7,height:screenSize.height * 0.05)
+        passwordField.placeholderNormalColor = UIColor.white
+        passwordField.placeholder = "Contraseña"
+        passwordField.textColor = UIColor.white
+        passwordField.detailColor = UIColor.white
+        passwordField.detail = "Al menos 6 caracteres"
+        passwordField.clearButtonMode = .whileEditing
+        passwordField.isVisibilityIconButtonEnabled = true
+        view.addSubview(passwordField)
+    }
+    
+    
+    func crearBotones(){
+        let screenSize = UIScreen.main.bounds
+        
+        let iniciaSesionTapped = UITapGestureRecognizer(target: self, action: #selector(iniciaSesion(tapGestureRecognizer:)))
+        
+        let iniciarSesion = UIButton()
+        iniciarSesion.frame = CGRect(x: screenSize.width * 0.08,y:screenSize.height * 0.58,width:screenSize.width * 0.4,height:screenSize.height * 0.07)
+        iniciarSesion.setTitle("Iniciar Sesion", for: .normal)
+        iniciarSesion.setTitleColor(UIColor.white, for: .normal)
+        iniciarSesion.layer.borderColor = UIColor.white.cgColor
+        iniciarSesion.layer.borderWidth = 1
+        iniciarSesion.addGestureRecognizer(iniciaSesionTapped)
+        view.addSubview(iniciarSesion)
+        
+        let crearCuentaTapped = UITapGestureRecognizer(target: self, action: #selector(nuevaCuenta(tapGestureRecognizer:)))
+        
+        let crearCuenta = UIButton()
+        crearCuenta.frame = CGRect(x: screenSize.width * 0.54,y:screenSize.height * 0.58,width:screenSize.width * 0.4,height:screenSize.height * 0.07)
+        crearCuenta.setTitle("Crear Cuenta", for: .normal)
+        crearCuenta.setTitleColor(UIColor.white, for: .normal)
+        crearCuenta.layer.borderColor = UIColor.white.cgColor
+        crearCuenta.layer.borderWidth = 1
+        crearCuenta.addGestureRecognizer(crearCuentaTapped)
+        view.addSubview(crearCuenta)
+        
+        let facebookTapped = UITapGestureRecognizer(target: self, action: #selector(loginButtonClicked(tapGestureRecognizer:)))
+        
+        let facebook = FABButton(image: UIImage(named: "facebook.png"), tintColor: .white)
+        facebook.frame = CGRect(x: screenSize.width * 0.31,y:screenSize.height * 0.73,width:screenSize.width * 0.16,height:screenSize.width * 0.16)
+        facebook.pulseColor = .white
+        facebook.addGestureRecognizer(facebookTapped)
+        view.addSubview(facebook)
+        
+        let google = FABButton(image: UIImage(named: "google.png"), tintColor: .white)
+        google.frame = CGRect(x: screenSize.width * 0.53,y:screenSize.height * 0.73,width:screenSize.width * 0.16,height:screenSize.width * 0.16)
+        google.pulseColor = .white
+        view.addSubview(google)
+        
+        invitadoBtn.titleLabel?.font =  UIFont.boldSystemFont(ofSize: 20.0)
+        invitadoBtn.frame = CGRect(x: 0, y:view.bounds.height - screenSize.height * 0.2 - 20 ,width:screenSize.width,height:screenSize.width * 0.2)
         
     }
         
@@ -107,10 +174,10 @@ class LogInController: UIViewController {
     
     
     //********************************Funcion de inicio de sesion********************************
-    @IBAction func iniciaSesion(_ sender: Any) {
+    @objc func iniciaSesion(tapGestureRecognizer: UITapGestureRecognizer) {
         
-        usuario = usuarioLabel.text!
-        contraseña = contrasenaLabel.text!
+        usuario = emailField.text!
+        contraseña = passwordField.text!
         
         if Utilities.isValidEmail(testStr: usuario){
         
@@ -190,10 +257,10 @@ class LogInController: UIViewController {
     
     
     //********************************Funcion de creacion de cuenta********************************
-    @IBAction func nuevaCuenta(_ sender: Any) {
+    @objc func nuevaCuenta(tapGestureRecognizer: UITapGestureRecognizer) {
         
-        usuario = usuarioLabel.text!
-        contraseña = contrasenaLabel.text!
+        usuario = emailField.text!
+        contraseña = passwordField.text!
         
         if Utilities.isValidEmail(testStr: usuario){
             
@@ -274,7 +341,7 @@ class LogInController: UIViewController {
     
     //*******************************Funciones para loggin con facebook******************************
     //when login button clicked
-    @IBAction func loginButtonClicked(_ sender: Any) {
+    @objc func loginButtonClicked(tapGestureRecognizer: UITapGestureRecognizer) {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult {

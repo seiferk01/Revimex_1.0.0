@@ -1,6 +1,7 @@
 
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Revimex' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -12,6 +13,7 @@ target 'Revimex' do
   pod 'IQKeyboardManagerSwift'
   pod 'FontAwesome.swift'
   pod 'Eureka'
+  pod 'Material', '~> 2.0'
 
   # Pods for Revimex
 

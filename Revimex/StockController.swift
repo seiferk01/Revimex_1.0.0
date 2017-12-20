@@ -20,6 +20,7 @@ class StockController: UIViewController,UITableViewDataSource {
     @IBOutlet weak var etiquetaBienvenida: UILabel!
     @IBOutlet weak var headerLineas: UILabel!
     @IBOutlet weak var lineasDeNegocio: UIView!
+    @IBOutlet weak var contenedorImagenBienvenida: UIView!
     
     //medidas de la barra de navegacion
     var navigationBarSizeWidth: CGFloat = 0
@@ -61,7 +62,6 @@ class StockController: UIViewController,UITableViewDataSource {
         let navigationBarSize = self.navigationController?.navigationBar.bounds
         navigationBarSizeWidth = (navigationBarSize?.width)!
         navigationBarSizeHeigth = (navigationBarSize?.height)!
-        
         
         tableView.backgroundColor = .clear
         

@@ -27,6 +27,13 @@ PODS:
     - FBSDKCoreKit
   - FontAwesome.swift (1.3.2)
   - IQKeyboardManagerSwift (5.0.6)
+  - Material (2.12.18):
+    - Material/Core (= 2.12.18)
+  - Material/Core (2.12.18):
+    - Motion (~> 1.2.5)
+  - Motion (1.2.5):
+    - Motion/Core (= 1.2.5)
+  - Motion/Core (1.2.5)
 
 DEPENDENCIES:
   - Eureka
@@ -35,6 +42,7 @@ DEPENDENCIES:
   - FacebookShare
   - FontAwesome.swift
   - IQKeyboardManagerSwift
+  - Material (~> 2.0)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -47,7 +55,9 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 4f525556e0df4cf0f574cb3f01c675434f29d477
   FontAwesome.swift: b4e4c8ccbbecb12f9b592bc533ff237af3706667
   IQKeyboardManagerSwift: 02bfbb0dff71c66d0ab77d80d25dfce0c3717735
+  Material: ffd690a7d57352b108955a4367fb39de92ea8030
+  Motion: 88a8bee21926af792333f4b9e7170f710e9e48f3
 
-PODFILE CHECKSUM: 0e7e110988076f4ea1be84dd9c6d76f1c5e5fede
+PODFILE CHECKSUM: 5e36f3de9434a701ca37dc08926e56ddd163415f
 
 COCOAPODS: 1.3.1

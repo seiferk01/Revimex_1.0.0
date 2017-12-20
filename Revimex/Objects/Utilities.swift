@@ -15,6 +15,20 @@ import UIKit
     userId -> almacena el id de usuario
 */
 
+//genera un borde inferior en un campo de texto
+extension UITextField {
+    func borderBottom(color: UIColor,borderSize: CGFloat){
+        let border = CALayer()
+        let width = borderSize
+        border.borderColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+}
+
 //define el fondo de la vista y le da transparencia a la navbar o el fondo blanco y navabar solida
 extension UIViewController{
     
@@ -65,7 +79,7 @@ extension UIViewController{
         
         let logo = UIImage(named: "revimex.png")
         let imageView = UIImageView(image:logo)
-        imageView.frame = CGRect(x: screenSize.width/8,y: screenSize.height/4,width: screenSize.width*(6/8),height: screenSize.height/8)
+        imageView.frame = CGRect(x: screenSize.width * 0.125,y: screenSize.height * 0.15,width: screenSize.width * 0.75,height: screenSize.height * 0.125)
         
         view.addSubview(imageView)
         

@@ -115,6 +115,8 @@
 		52B720401FA78F4700F447DA /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B7203F1FA78F4700F447DA /* StockController.swift */; };
 		52B734F51FDB31280028F2F7 /* UbicacionInmuebleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B734F41FDB31280028F2F7 /* UbicacionInmuebleController.swift */; };
 		52B734F71FDB3D8F0028F2F7 /* lineas.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B734F61FDB3D8E0028F2F7 /* lineas.png */; };
+		52BD11A41FE98E8E00B0747E /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD11A21FE98E8A00B0747E /* google.png */; };
+		52D0CF451FE99B1F009F921C /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D0CF441FE99B1E009F921C /* facebook.png */; };
 		52F465F81FE37AA00075C6BD /* CarritoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F465F71FE37AA00075C6BD /* CarritoController.swift */; };
 		52F465FA1FE37D1A0075C6BD /* Favorito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F465F91FE37D1A0075C6BD /* Favorito.swift */; };
 		52F465FD1FE3844C0075C6BD /* Carrito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F465FC1FE3844B0075C6BD /* Carrito.swift */; };
@@ -272,6 +274,10 @@
 		52B7203F1FA78F4700F447DA /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
 		52B734F41FDB31280028F2F7 /* UbicacionInmuebleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbicacionInmuebleController.swift; sourceTree = "<group>"; };
 		52B734F61FDB3D8E0028F2F7 /* lineas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineas.png; sourceTree = "<group>"; };
+		52BD119E1FE883CF00B0747E /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52BD119F1FE8853700B0747E /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52BD11A21FE98E8A00B0747E /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
+		52D0CF441FE99B1E009F921C /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		52F465F71FE37AA00075C6BD /* CarritoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarritoController.swift; sourceTree = "<group>"; };
 		52F465F91FE37D1A0075C6BD /* Favorito.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorito.swift; sourceTree = "<group>"; };
 		52F465FC1FE3844B0075C6BD /* Carrito.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carrito.swift; sourceTree = "<group>"; };
@@ -382,6 +388,8 @@
 		526DC5F41FB2396B007CD85F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				52D0CF441FE99B1E009F921C /* facebook.png */,
+				52BD11A21FE98E8A00B0747E /* google.png */,
 				52F465FE1FE49C0F0075C6BD /* fondo.png */,
 				529F014D1FE219A600BEC068 /* baños.png */,
 				529F01521FE21DEF00BEC068 /* carritoDisponible.png */,
@@ -435,6 +443,7 @@
 		526DC6221FB52CAC007CD85F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52BD119E1FE883CF00B0747E /* Material.framework */,
 				521E561A1FC5F9F900D38947 /* Bolts.framework */,
 				521E561B1FC5F9F900D38947 /* FacebookCore.framework */,
 				521E561C1FC5F9F900D38947 /* FacebookLogin.framework */,
@@ -465,6 +474,7 @@
 		52B71FFE1FA785F400F447DA = {
 			isa = PBXGroup;
 			children = (
+				52BD119F1FE8853700B0747E /* Material.framework */,
 				526DC6541FB68054007CD85F /* GooglePlaces.bundle */,
 				526DC6531FB68044007CD85F /* GooglePlacePicker.bundle */,
 				526DC6521FB68027007CD85F /* GoogleMaps.bundle */,
@@ -683,6 +693,7 @@
 				526DC5E51FB157AE007CD85F /* revimex.png in Resources */,
 				529F01511FE219AC00BEC068 /* baños.png in Resources */,
 				5221BE131FBCC02900D0F89C /* filterButton.png in Resources */,
+				52BD11A41FE98E8E00B0747E /* google.png in Resources */,
 				52F465FF1FE49C100075C6BD /* fondo.png in Resources */,
 				526DC61D1FB4C129007CD85F /* propiedades.png in Resources */,
 				526DC5FE1FB25554007CD85F /* principalMarker.png in Resources */,
@@ -727,6 +738,7 @@
 				526DC5EE1FB21D9F007CD85F /* escuelas.png in Resources */,
 				52B734F71FDB3D8F0028F2F7 /* lineas.png in Resources */,
 				5221BE0F1FBBD30300D0F89C /* info.png in Resources */,
+				52D0CF451FE99B1F009F921C /* facebook.png in Resources */,
 				521E56221FC6695300D38947 /* favorites.png in Resources */,
 				11DFB5101FE31B520054EB0B /* InputCellText.xib in Resources */,
 			);
@@ -878,6 +890,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -891,6 +905,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
